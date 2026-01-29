@@ -2,9 +2,9 @@
 :root {
   --velez-blue: #002d5e;
   --velez-blue-light: #004a99;
-  --velez-cyan: #00a8ff; 
+  --velez-cyan: #00a8ff;
   --whatsapp-green: #25d366;
-  --professional-grey: #e9ecef; 
+  --professional-grey: #e9ecef;
   --transition-smooth: all 0.3s ease;
   --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -15,18 +15,23 @@ body {
   font-weight: 300;
   line-height: 1.6;
   color: #333;
-  padding-top: 50px; 
+  padding-top: 50px;
   overflow-x: hidden;
   background-color: #fff;
 }
 
-h1, h2, h3, h4, h5, .main-nav {
+h1,
+h2,
+h3,
+h4,
+h5,
+.main-nav {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* --- 3. NAVBAR (Línea blanca perfectamente centrada) --- */
+/* --- 3. NAVBAR (Logo y Menú con Hover Unificado) --- */
 .main-nav {
   background-color: var(--velez-blue);
   z-index: 1100;
@@ -34,145 +39,243 @@ h1, h2, h3, h4, h5, .main-nav {
   display: flex;
   align-items: center;
 }
-.navbar-brand { font-size: 1.2rem; color: #fff !important; text-decoration: none; }
 
-.nav-link { 
-    font-size: 0.85rem; 
-    color: #fff !important; 
-    padding: 10px 0.7rem !important; 
-    position: relative; 
-    transition: var(--transition-smooth); 
+/* Estilo Base para Logo y Links */
+.navbar-brand,
+.nav-link {
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
 }
 
-/* La línea: centrada al 50% del ancho del botón */
-.nav-link::after { 
-    content: ""; 
-    position: absolute; 
-    width: 50%; /* Ancho de la línea bajo la palabra */
-    height: 2px; 
-    bottom: 8px; 
-    left: 25%; /* (100% - 50%) / 2 = 25% para centrar */
-    background-color: #fff; 
-    transform: scaleX(0); 
-    transition: transform 0.3s ease; 
-    transform-origin: center; /* Crece desde el centro hacia los lados */
+.navbar-brand {
+  font-size: 1.2rem;
+  color: #fff !important;
+  margin-right: 2rem;
 }
 
-.nav-link:hover::after { 
-    transform: scaleX(1); 
+.nav-link {
+  font-size: 0.85rem;
+  color: #fff !important;
+  padding: 10px 0.7rem !important;
 }
 
-.nav-link:hover { 
-    color: var(--velez-cyan) !important; 
-    transform: scale(1.02); 
+/* Línea Blanca para ambos */
+.navbar-brand::after,
+.nav-link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 5px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+/* Ajustes específicos de ancho y posición para que queden centrados */
+.navbar-brand::after {
+  width: 80%;
+  left: 10%;
+} /* Más ancha para el nombre largo */
+.nav-link::after {
+  width: 50%;
+  left: 25%;
+}
+
+/* Efecto Hover: Zoom + Línea */
+.navbar-brand:hover,
+.nav-link:hover {
+  color: var(--velez-cyan) !important;
+  transform: scale(1.05); /* Zoom sutil */
+}
+
+.navbar-brand:hover::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 /* --- 4. HERO CON ANIMACIÓN ZOOM --- */
 .hero-container {
-  width: 100%; height: 70vh; background-color: #000;
-  position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
+  width: 100%;
+  height: 70vh;
+  background-color: #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 .hero-container::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.45)); z-index: 1;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.45)
+  );
+  z-index: 1;
 }
-.img-hero-curated { 
-  width: 100%; height: 100%; object-fit: cover; object-position: center 20%; 
-  position: absolute; z-index: 0;
+.img-hero-curated {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  position: absolute;
+  z-index: 0;
   animation: heroZoomIn 10s ease-out forwards;
   will-change: transform;
 }
 @keyframes heroZoomIn {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
-.hero-content { position: relative; z-index: 2; color: white; width: 100%; }
-.text-highlight { color: var(--velez-cyan); }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  width: 100%;
+}
+.text-highlight {
+  color: var(--velez-cyan);
+}
 
 /* --- 5. BOTONES UNIFICADOS --- */
 .btn-velez-primary {
-    background-color: var(--velez-blue);
-    color: #ffffff !important;
-    padding: 12px 35px;
-    border-radius: 50px;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    border: 2px solid var(--velez-blue);
-    transition: var(--transition-bounce);
-    display: inline-block;
-    text-decoration: none;
+  background-color: var(--velez-blue);
+  color: #ffffff !important;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 2px solid var(--velez-blue);
+  transition: var(--transition-bounce);
+  display: inline-block;
+  text-decoration: none;
 }
 .btn-velez-primary:hover {
-    background-color: var(--velez-cyan);
-    border-color: var(--velez-cyan);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
+  background-color: var(--velez-cyan);
+  border-color: var(--velez-cyan);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
 }
 
-/* --- 6. PERFIL PERFECTO (25vh) --- */
+/* --- SECCIONES RESTANTES IGUALES (Perfil, Equipo, Servicios, Cursos, Libro) --- */
 .section-profile-perfect {
   background-color: var(--professional-grey);
-  height: 25vh; min-height: 180px;
-  display: flex; align-items: center; border-bottom: 1px solid #dee2e6;
+  height: 25vh;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
 }
-.img-pedro-profile { width: 150px; height: 150px; object-fit: cover; border-radius: 50%;}
-
-/* --- 7. EQUIPO --- */
-.img-team { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; transition: var(--transition-bounce); border: 3px solid rgba(255, 255, 255, 0.1); }
-.team-card:hover .img-team { transform: scale(1.1); border-color: var(--velez-cyan); }
-
-/* --- 8. SERVICIOS Y CURSOS (HOVER REBOTE) --- */
-.service-card, .course-card {
-    transition: var(--transition-bounce);
+.img-pedro-profile {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
 }
-.img-service-png, .img-course-rounded {
-    transition: var(--transition-bounce);
+.img-team {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: var(--transition-bounce);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+.team-card:hover .img-team {
+  transform: scale(1.1);
+  border-color: var(--velez-cyan);
+}
+.service-card,
+.course-card {
+  transition: var(--transition-bounce);
+}
+.img-service-png,
+.img-course-rounded {
+  transition: var(--transition-bounce);
 }
 .service-card:hover .img-service-png,
 .course-card:hover .img-course-rounded {
-    transform: translateY(-15px) scale(1.1);
+  transform: translateY(-15px) scale(1.1);
 }
-.service-card:hover h4, 
+.service-card:hover h4,
 .course-card:hover h5 {
-    color: var(--velez-cyan) !important;
+  color: var(--velez-cyan) !important;
 }
-
-.img-service-png { width: 140px; height: 140px; object-fit: contain; }
-.img-course-rounded { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #fff; }
-
-/* --- 9. SECCIÓN CURSOS (Gris) --- */
+.img-service-png {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+.img-course-rounded {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
 .section-courses-grey {
-    background-color: var(--professional-grey);
-    padding: 40px 0; border-top: 1px solid #dee2e6;
+  background-color: var(--professional-grey);
+  padding: 80px 0;
+  border-top: 1px solid #dee2e6;
 }
-
-/* --- 10. SECCIÓN LIBRO --- */
 .section-book-integrated {
-    background-color: #ffffff;
-    padding: 0;
-    overflow: hidden;
+  background-color: #ffffff;
+  padding: 0;
+  overflow: hidden;
 }
 .img-book-large {
-    width: 100%;
-    max-width: 550px; 
-    height: auto;
-    display: block;
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  display: block;
 }
-
-/* --- 11. UTILIDADES Y WHATSAPP --- */
-section { padding: 60px 0; }
-.section-dark { background-color: var(--velez-blue); color: #fff; }
-.color-azul-velez { color: var(--velez-blue) !important; }
-
-.whatsapp-float { 
-    position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green);
-    color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; font-size: 28px; z-index: 1000;
+section {
+  padding: 60px 0;
 }
-.whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+.section-dark {
+  background-color: var(--velez-blue);
+  color: #fff;
+}
+.color-azul-velez {
+  color: var(--velez-blue) !important;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--whatsapp-green);
+  color: #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  z-index: 1000;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1) rotate(10deg);
+}
 
 @media (max-width: 768px) {
-    .section-profile-perfect { height: auto; padding: 40px 0 !important; }
-    .img-book-large { max-width: 320px; margin: 20px auto; }
+  .section-profile-perfect {
+    height: auto;
+    padding: 40px 0 !important;
+  }
+  .img-book-large {
+    max-width: 320px;
+    margin: 20px auto;
+  }
 }
