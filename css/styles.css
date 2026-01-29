@@ -290,3 +290,33 @@ section {
     margin: 20px auto;
   }
 }
+
+/* ===== JERARQUÍA TIPOGRÁFICA EXCLUSIVA SECCIÓN EQUIPO ===== */
+
+#equipo .team-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+#equipo .team-role {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--velez-cyan);
+  margin-bottom: 6px;
+}
+
+#equipo .team-specialty {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0;
+}
