@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, .main-nav {
   height: 25vh; min-height: 180px;
   display: flex; align-items: center; border-bottom: 1px solid #dee2e6;
 }
-.img-pedro-profile { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; border: 3px solid #fff; }
+.img-pedro-profile { width: 150px; height: 150px; object-fit: cover; border-radius: 50%;}
 
 /* --- 7. EQUIPO --- */
 .img-team { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; transition: var(--transition-bounce); border: 3px solid rgba(255, 255, 255, 0.1); }
