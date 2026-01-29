@@ -2,7 +2,7 @@
 :root {
   --velez-blue: #002d5e;
   --velez-blue-light: #004a99;
-  --velez-cyan: #00a8ff; /* Color de realce y hover */
+  --velez-cyan: #00a8ff; 
   --whatsapp-green: #25d366;
   --professional-grey: #e9ecef; 
   --transition-smooth: all 0.3s ease;
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, .main-nav {
   letter-spacing: 1px;
 }
 
-/* --- 3. NAVBAR (Recuperación de línea blanca) --- */
+/* --- 3. NAVBAR (Línea blanca centrada) --- */
 .main-nav {
   background-color: var(--velez-blue);
   z-index: 1100;
@@ -44,27 +44,27 @@ h1, h2, h3, h4, h5, .main-nav {
     transition: var(--transition-smooth); 
 }
 
+/* Ajuste de la línea: centrada y con ancho relativo al texto */
 .nav-link::after { 
     content: ""; 
     position: absolute; 
-    width: 100%; 
+    width: 60%; /* Ancho de la línea relativo al contenedor */
     height: 2px; 
-    bottom: 5px; 
-    left: 0; 
+    bottom: 8px; 
+    left: 20%; /* Centrado manual: (100% - 60%) / 2 */
     background-color: #fff; 
     transform: scaleX(0); 
     transition: transform 0.3s ease; 
-    transform-origin: bottom right; 
+    transform-origin: center; /* Crece desde el medio */
 }
 
 .nav-link:hover::after { 
-    transform: scaleX(0.7); 
-    transform-origin: bottom left; 
+    transform: scaleX(1); 
 }
 
 .nav-link:hover { 
     color: var(--velez-cyan) !important; 
-    transform: scale(1.05); 
+    transform: scale(1.02); 
 }
 
 /* --- 4. HERO CON ANIMACIÓN ZOOM --- */
@@ -121,7 +121,6 @@ h1, h2, h3, h4, h5, .main-nav {
 /* --- 7. EQUIPO --- */
 .img-team { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; transition: var(--transition-bounce); border: 3px solid rgba(255, 255, 255, 0.1); }
 .team-card:hover .img-team { transform: scale(1.1); border-color: var(--velez-cyan); }
-.especialidad-rol { font-size: 0.8rem; color: var(--velez-cyan); font-weight: 600; }
 
 /* --- 8. SERVICIOS Y CURSOS (HOVER REBOTE) --- */
 .service-card, .course-card {
@@ -142,13 +141,13 @@ h1, h2, h3, h4, h5, .main-nav {
 .img-service-png { width: 140px; height: 140px; object-fit: contain; }
 .img-course-rounded { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #fff; }
 
-/* --- 9. SECCIÓN CURSOS (Gris) --- */
+/* --- 9. SECCIÓN CURSOS --- */
 .section-courses-grey {
     background-color: var(--professional-grey);
     padding: 80px 0; border-top: 1px solid #dee2e6;
 }
 
-/* --- 10. SECCIÓN LIBRO INTEGRADA --- */
+/* --- 10. SECCIÓN LIBRO --- */
 .section-book-integrated {
     background-color: #ffffff;
     padding: 0;
@@ -160,10 +159,8 @@ h1, h2, h3, h4, h5, .main-nav {
     height: auto;
     display: block;
 }
-.ls-wide { letter-spacing: 2px; font-weight: 400; }
-.libro-descripcion p { font-size: 1.05rem; color: #444; line-height: 1.7; }
 
-/* --- 11. UTILIDADES Y RESPONSIVE --- */
+/* --- 11. UTILIDADES Y WHATSAPP --- */
 section { padding: 60px 0; }
 .section-dark { background-color: var(--velez-blue); color: #fff; }
 .color-azul-velez { color: var(--velez-blue) !important; }
@@ -172,7 +169,9 @@ section { padding: 60px 0; }
     position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green);
     color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex;
     align-items: center; justify-content: center; font-size: 28px; z-index: 1000;
+    transition: var(--transition-smooth);
 }
+.whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
 @media (max-width: 768px) {
     .section-profile-perfect { height: auto; padding: 40px 0 !important; }
