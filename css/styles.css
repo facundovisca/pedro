@@ -5,7 +5,8 @@
   --velez-cyan: #00a8ff; /* Color de realce y hover */
   --whatsapp-green: #25d366;
   --professional-grey: #e9ecef; 
-  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: all 0.3s ease;
+  --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* --- 2. BASE & TIPOGRAFÍA --- */
@@ -25,7 +26,7 @@ h1, h2, h3, h4, h5, .main-nav {
   letter-spacing: 1px;
 }
 
-/* --- 3. NAVBAR (50px) --- */
+/* --- 3. NAVBAR (Recuperación de línea blanca) --- */
 .main-nav {
   background-color: var(--velez-blue);
   z-index: 1100;
@@ -34,8 +35,37 @@ h1, h2, h3, h4, h5, .main-nav {
   align-items: center;
 }
 .navbar-brand { font-size: 1.2rem; color: #fff !important; text-decoration: none; }
-.nav-link { font-size: 0.85rem; color: #fff !important; padding: 10px 0.7rem !important; transition: 0.3s; }
-.nav-link:hover { color: var(--velez-cyan) !important; transform: scale(1.05); }
+
+.nav-link { 
+    font-size: 0.85rem; 
+    color: #fff !important; 
+    padding: 10px 0.7rem !important; 
+    position: relative; 
+    transition: var(--transition-smooth); 
+}
+
+.nav-link::after { 
+    content: ""; 
+    position: absolute; 
+    width: 100%; 
+    height: 2px; 
+    bottom: 5px; 
+    left: 0; 
+    background-color: #fff; 
+    transform: scaleX(0); 
+    transition: transform 0.3s ease; 
+    transform-origin: bottom right; 
+}
+
+.nav-link:hover::after { 
+    transform: scaleX(0.7); 
+    transform-origin: bottom left; 
+}
+
+.nav-link:hover { 
+    color: var(--velez-cyan) !important; 
+    transform: scale(1.05); 
+}
 
 /* --- 4. HERO CON ANIMACIÓN ZOOM --- */
 .hero-container {
@@ -69,7 +99,7 @@ h1, h2, h3, h4, h5, .main-nav {
     font-weight: 600;
     text-transform: uppercase;
     border: 2px solid var(--velez-blue);
-    transition: var(--transition);
+    transition: var(--transition-bounce);
     display: inline-block;
     text-decoration: none;
 }
@@ -88,31 +118,29 @@ h1, h2, h3, h4, h5, .main-nav {
 }
 .img-pedro-profile { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; border: 3px solid #fff; }
 
-/* --- 7. EQUIPO (Oscuro) --- */
-.img-team { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; transition: var(--transition); border: 3px solid rgba(255, 255, 255, 0.1); }
+/* --- 7. EQUIPO --- */
+.img-team { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; transition: var(--transition-bounce); border: 3px solid rgba(255, 255, 255, 0.1); }
 .team-card:hover .img-team { transform: scale(1.1); border-color: var(--velez-cyan); }
 .especialidad-rol { font-size: 0.8rem; color: var(--velez-cyan); font-weight: 600; }
 
 /* --- 8. SERVICIOS Y CURSOS (HOVER REBOTE) --- */
 .service-card, .course-card {
-    transition: var(--transition);
+    transition: var(--transition-bounce);
 }
 .img-service-png, .img-course-rounded {
-    transition: var(--transition);
+    transition: var(--transition-bounce);
 }
-/* Al pasar el mouse, el icono sube y se agranda */
 .service-card:hover .img-service-png,
 .course-card:hover .img-course-rounded {
     transform: translateY(-15px) scale(1.1);
 }
-/* El título cambia de color al celeste del Hero */
 .service-card:hover h4, 
 .course-card:hover h5 {
     color: var(--velez-cyan) !important;
 }
 
 .img-service-png { width: 140px; height: 140px; object-fit: contain; }
-.img-course-rounded { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.img-course-rounded { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #fff; }
 
 /* --- 9. SECCIÓN CURSOS (Gris) --- */
 .section-courses-grey {
@@ -131,10 +159,6 @@ h1, h2, h3, h4, h5, .main-nav {
     max-width: 550px; 
     height: auto;
     display: block;
-    transition: var(--transition);
-}
-.section-book-integrated:hover .img-book-large {
-    transform: scale(1.02); /* Efecto sutil al pasar por la sección */
 }
 .ls-wide { letter-spacing: 2px; font-weight: 400; }
 .libro-descripcion p { font-size: 1.05rem; color: #444; line-height: 1.7; }
@@ -148,12 +172,9 @@ section { padding: 60px 0; }
     position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green);
     color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex;
     align-items: center; justify-content: center; font-size: 28px; z-index: 1000;
-    transition: 0.3s;
 }
-.whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
 @media (max-width: 768px) {
     .section-profile-perfect { height: auto; padding: 40px 0 !important; }
     .img-book-large { max-width: 320px; margin: 20px auto; }
-    .hero-container { height: 60vh; }
 }
