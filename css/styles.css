@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, .main-nav {
 /* --- 9. SECCIÓN CURSOS (Gris) --- */
 .section-courses-grey {
     background-color: var(--professional-grey);
-    padding: 80px 0; border-top: 1px solid #dee2e6;
+    padding: 40px 0; border-top: 1px solid #dee2e6;
 }
 
 /* --- 10. SECCIÓN LIBRO --- */
