@@ -2,10 +2,10 @@
 :root {
   --velez-blue: #002d5e;
   --velez-blue-light: #004a99;
-  --velez-cyan: #00a8ff; /* El color del resaltado en el Hero */
+  --velez-cyan: #00a8ff; /* Color de realce y hover */
   --whatsapp-green: #25d366;
   --professional-grey: #e9ecef; 
-  --transition: all 0.3s ease-in-out;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* --- 2. BASE & TIPOGRAFÍA --- */
@@ -16,6 +16,7 @@ body {
   color: #333;
   padding-top: 50px; 
   overflow-x: hidden;
+  background-color: #fff;
 }
 
 h1, h2, h3, h4, h5, .main-nav {
@@ -24,7 +25,7 @@ h1, h2, h3, h4, h5, .main-nav {
   letter-spacing: 1px;
 }
 
-/* --- 3. NAVBAR ULTRA DELGADO (50px) --- */
+/* --- 3. NAVBAR (50px) --- */
 .main-nav {
   background-color: var(--velez-blue);
   z-index: 1100;
@@ -33,11 +34,10 @@ h1, h2, h3, h4, h5, .main-nav {
   align-items: center;
 }
 .navbar-brand { font-size: 1.2rem; color: #fff !important; text-decoration: none; }
-.nav-link { font-size: 0.85rem; color: #fff !important; padding: 10px 0.7rem !important; position: relative; transition: var(--transition); }
-.nav-link::after { content: ""; position: absolute; width: 100%; height: 2px; bottom: 5px; left: 0; background-color: #fff; transform: scaleX(0); transition: transform 0.3s ease; }
-.nav-link:hover { transform: scale(1.05); }
+.nav-link { font-size: 0.85rem; color: #fff !important; padding: 10px 0.7rem !important; transition: 0.3s; }
+.nav-link:hover { color: var(--velez-cyan) !important; transform: scale(1.05); }
 
-/* --- 4. HERO (70vh) --- */
+/* --- 4. HERO CON ANIMACIÓN ZOOM --- */
 .hero-container {
   width: 100%; height: 70vh; background-color: #000;
   position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
@@ -46,11 +46,20 @@ h1, h2, h3, h4, h5, .main-nav {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.45)); z-index: 1;
 }
-.img-hero-curated { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: absolute; z-index: 0; }
+.img-hero-curated { 
+  width: 100%; height: 100%; object-fit: cover; object-position: center 20%; 
+  position: absolute; z-index: 0;
+  animation: heroZoomIn 10s ease-out forwards;
+  will-change: transform;
+}
+@keyframes heroZoomIn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
 .hero-content { position: relative; z-index: 2; color: white; width: 100%; }
 .text-highlight { color: var(--velez-cyan); }
 
-/* --- 5. BOTONES UNIFICADOS (NUEVO) --- */
+/* --- 5. BOTONES UNIFICADOS --- */
 .btn-velez-primary {
     background-color: var(--velez-blue);
     color: #ffffff !important;
@@ -59,19 +68,16 @@ h1, h2, h3, h4, h5, .main-nav {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
     border: 2px solid var(--velez-blue);
     transition: var(--transition);
     display: inline-block;
     text-decoration: none;
 }
-
 .btn-velez-primary:hover {
     background-color: var(--velez-cyan);
     border-color: var(--velez-cyan);
-    color: #ffffff !important;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
 }
 
 /* --- 6. PERFIL PERFECTO (25vh) --- */
@@ -80,23 +86,39 @@ h1, h2, h3, h4, h5, .main-nav {
   height: 25vh; min-height: 180px;
   display: flex; align-items: center; border-bottom: 1px solid #dee2e6;
 }
-.img-pedro-profile { width: 150px; height: 150px; object-fit: cover; border-radius: 50%;}
+.img-pedro-profile { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; border: 3px solid #fff; }
 
-/* --- 7. EQUIPO --- */
+/* --- 7. EQUIPO (Oscuro) --- */
 .img-team { width: 130px; height: 130px; object-fit: cover; border-radius: 50%; transition: var(--transition); border: 3px solid rgba(255, 255, 255, 0.1); }
-.team-card:hover .img-team { transform: scale(1.05); border-color: var(--velez-cyan); }
-.especialidad-rol { font-size: 0.8rem; color: var(--velez-cyan); font-weight: 600; text-transform: uppercase; }
+.team-card:hover .img-team { transform: scale(1.1); border-color: var(--velez-cyan); }
+.especialidad-rol { font-size: 0.8rem; color: var(--velez-cyan); font-weight: 600; }
 
-/* --- 8. SERVICIOS --- */
+/* --- 8. SERVICIOS Y CURSOS (HOVER REBOTE) --- */
+.service-card, .course-card {
+    transition: var(--transition);
+}
+.img-service-png, .img-course-rounded {
+    transition: var(--transition);
+}
+/* Al pasar el mouse, el icono sube y se agranda */
+.service-card:hover .img-service-png,
+.course-card:hover .img-course-rounded {
+    transform: translateY(-15px) scale(1.1);
+}
+/* El título cambia de color al celeste del Hero */
+.service-card:hover h4, 
+.course-card:hover h5 {
+    color: var(--velez-cyan) !important;
+}
+
 .img-service-png { width: 140px; height: 140px; object-fit: contain; }
-.service-card h4 { font-size: 1.05rem; color: var(--velez-blue); margin-top: 10px; font-weight: 700; }
+.img-course-rounded { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-/* --- 9. SECCIÓN CURSOS (GRIS) --- */
+/* --- 9. SECCIÓN CURSOS (Gris) --- */
 .section-courses-grey {
     background-color: var(--professional-grey);
-    padding: 80px 0; border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6;
+    padding: 80px 0; border-top: 1px solid #dee2e6;
 }
-.img-course-rounded { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #fff; transition: var(--transition); }
 
 /* --- 10. SECCIÓN LIBRO INTEGRADA --- */
 .section-book-integrated {
@@ -109,13 +131,16 @@ h1, h2, h3, h4, h5, .main-nav {
     max-width: 550px; 
     height: auto;
     display: block;
+    transition: var(--transition);
+}
+.section-book-integrated:hover .img-book-large {
+    transform: scale(1.02); /* Efecto sutil al pasar por la sección */
 }
 .ls-wide { letter-spacing: 2px; font-weight: 400; }
 .libro-descripcion p { font-size: 1.05rem; color: #444; line-height: 1.7; }
 
-/* --- 11. OTROS --- */
+/* --- 11. UTILIDADES Y RESPONSIVE --- */
 section { padding: 60px 0; }
-.section-white { background-color: #fff; }
 .section-dark { background-color: var(--velez-blue); color: #fff; }
 .color-azul-velez { color: var(--velez-blue) !important; }
 
@@ -123,29 +148,12 @@ section { padding: 60px 0; }
     position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green);
     color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex;
     align-items: center; justify-content: center; font-size: 28px; z-index: 1000;
+    transition: 0.3s;
 }
+.whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
 @media (max-width: 768px) {
     .section-profile-perfect { height: auto; padding: 40px 0 !important; }
-    .img-book-large { max-width: 320px; margin: 0 auto; }
-}
-
-/* --- ANIMACIÓN HERO ZOOM --- */
-.hero-container {
-    overflow: hidden; /* Fundamental para que la imagen no se salga del contenedor al agrandarse */
-}
-
-.img-hero-curated {
-    /* Aplicamos la animación: nombre | duración | suavizado | se queda en el estado final */
-    animation: heroZoomIn 10s ease-out forwards;
-    will-change: transform; /* Optimiza el rendimiento del navegador */
-}
-
-@keyframes heroZoomIn {
-    0% {
-        transform: scale(1); /* Tamaño original */
-    }
-    100% {
-        transform: scale(1.05); /* Se agranda un 10% suavemente */
-    }
+    .img-book-large { max-width: 320px; margin: 20px auto; }
+    .hero-container { height: 60vh; }
 }
