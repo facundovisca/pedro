@@ -40,7 +40,6 @@ h5,
   align-items: center;
 }
 
-/* Estilo Base para Logo y Links */
 .navbar-brand,
 .nav-link {
   position: relative;
@@ -63,7 +62,6 @@ h5,
   padding: 10px 0.7rem !important;
 }
 
-/* Línea Blanca para ambos */
 .navbar-brand::after,
 .nav-link::after {
   content: "";
@@ -76,21 +74,19 @@ h5,
   transform-origin: center;
 }
 
-/* Ajustes específicos de ancho y posición para que queden centrados */
 .navbar-brand::after {
   width: 80%;
   left: 10%;
-} /* Más ancha para el nombre largo */
+}
 .nav-link::after {
   width: 50%;
   left: 25%;
 }
 
-/* Efecto Hover: Zoom + Línea */
 .navbar-brand:hover,
 .nav-link:hover {
   color: var(--velez-cyan) !important;
-  transform: scale(1.05); /* Zoom sutil */
+  transform: scale(1.05);
 }
 
 .navbar-brand:hover::after,
@@ -169,7 +165,7 @@ h5,
   box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
 }
 
-/* --- SECCIONES RESTANTES IGUALES (Perfil, Equipo, Servicios, Cursos, Libro) --- */
+/* --- 6. PERFIL PERFECTO --- */
 .section-profile-perfect {
   background-color: var(--professional-grey);
   height: 25vh;
@@ -184,6 +180,8 @@ h5,
   object-fit: cover;
   border-radius: 50%;
 }
+
+/* --- 7. EQUIPO --- */
 .img-team {
   width: 130px;
   height: 130px;
@@ -196,6 +194,8 @@ h5,
   transform: scale(1.1);
   border-color: var(--velez-cyan);
 }
+
+/* --- 8. SERVICIOS Y CURSOS --- */
 .service-card,
 .course-card {
   transition: var(--transition-bounce);
@@ -224,11 +224,15 @@ h5,
   border-radius: 50%;
   border: 5px solid #fff;
 }
+
+/* --- 9. SECCIÓN CURSOS --- */
 .section-courses-grey {
   background-color: var(--professional-grey);
   padding: 80px 0;
   border-top: 1px solid #dee2e6;
 }
+
+/* --- 10. SECCIÓN LIBRO (Ajustada con Hover) --- */
 .section-book-integrated {
   background-color: #ffffff;
   padding: 0;
@@ -239,7 +243,14 @@ h5,
   max-width: 550px;
   height: auto;
   display: block;
+  transition: var(--transition-bounce);
 }
+.img-book-large:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* --- 11. UTILIDADES Y WHATSAPP --- */
 section {
   padding: 60px 0;
 }
