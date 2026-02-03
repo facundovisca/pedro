@@ -591,17 +591,15 @@ section {
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
-  width: 38px;      /* ajustado visualmente */
+  width: 38px; /* ajustado visualmente */
   height: 3px;
   background: var(--velez-cyan);
   border-radius: 2px;
 }
 
-
 #servicios .service-card {
   text-align: center;
 }
-
 
 /* ================= SERVICIOS — ULTRA PREMIUM ================= */
 
@@ -779,7 +777,7 @@ section {
   bottom: -120px;
   width: 500px;
   height: 500px;
-  border: 2px solid rgba(30,165,255,0.25);
+  border: 2px solid rgba(30, 165, 255, 0.25);
   border-radius: 50%;
 }
 
@@ -819,4 +817,232 @@ section {
   height: 75px;
   border-radius: 50%;
   border: 3px solid #1ea5ff;
+}
+
+/* ===============================
+   SECCIÓN EQUIPO
+================================ */
+.equipo-section {
+  position: relative;
+  background: linear-gradient(135deg, #0c2d57, #123d6b);
+  padding: 90px 20px 100px;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.equipo-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Título */
+.equipo-titulo {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.equipo-subtitulo {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+/* Miembros */
+.equipo-miembros {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+/* Cada perfil */
+.equipo-miembro {
+  max-width: 320px;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.equipo-miembro:hover {
+  transform: translateY(-6px);
+  filter: brightness(1.1);
+}
+
+/* Foto */
+.equipo-foto {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #4db3ff, #ffffff);
+}
+
+.equipo-foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Nombre */
+.equipo-miembro h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+/* Rol */
+.equipo-rol {
+  display: block;
+  color: #4db3ff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Descripción */
+.equipo-miembro p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ===============================
+   DECORACIONES
+================================ */
+
+.equipo-circulo-grande {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  right: -250px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .equipo-miembros {
+    gap: 60px;
+  }
+
+  .equipo-titulo {
+    font-size: 2.3rem;
+  }
+
+  .equipo-section {
+    padding: 70px 20px 80px;
+  }
+}
+
+#equipo {
+  position: relative;
+  padding: 80px 20px; /* antes era enorme */
+  background: linear-gradient(135deg, #0d2d50, #133c67);
+  color: white;
+  overflow: hidden;
+}
+
+/* Decoraciones */
+
+#equipo::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  bottom: -120px;
+  right: -120px;
+}
+
+.equipo-container {
+  max-width: 1100px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Título */
+.equipo-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.equipo-header h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.equipo-header p {
+  color: #c7d9ec;
+  font-size: 15px;
+}
+
+/* Miembros */
+.equipo-miembros {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+.miembro {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  max-width: 460px;
+}
+
+/* FOTO MÁS CHICA */
+.miembro img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #3db2ff;
+}
+
+/* Texto */
+.miembro-info h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.miembro-info span {
+  color: #3db2ff;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.miembro-info p {
+  font-size: 14px;
+  color: #c7d9ec;
+  line-height: 1.5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .miembro {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+#equipo {
+  padding: 60px 20px;
+}
+.equipo-header h2 {
+  font-size: 36px;
 }
