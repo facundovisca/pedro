@@ -20,18 +20,13 @@ body {
   background-color: #fff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-.main-nav {
+h1, h2, h3, h4, h5, .main-nav {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* --- 3. NAVBAR (Logo y Menú con Hover Unificado) --- */
+/* --- 3. NAVBAR --- */
 .main-nav {
   background-color: var(--velez-blue);
   z-index: 1100;
@@ -40,12 +35,9 @@ h5,
   align-items: center;
 }
 
-.navbar-brand,
-.nav-link {
+.navbar-brand, .nav-link {
   position: relative;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   display: inline-block;
   text-decoration: none;
 }
@@ -62,39 +54,12 @@ h5,
   padding: 10px 0.7rem !important;
 }
 
-.navbar-brand::after,
-.nav-link::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  bottom: 5px;
-  background-color: #fff;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: center;
-}
-
-.navbar-brand::after {
-  width: 80%;
-  left: 10%;
-}
-.nav-link::after {
-  width: 50%;
-  left: 25%;
-}
-
-.navbar-brand:hover,
-.nav-link:hover {
+.navbar-brand:hover, .nav-link:hover {
   color: var(--velez-cyan) !important;
   transform: scale(1.05);
 }
 
-.navbar-brand:hover::after,
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
-
-/* --- 4. HERO CON ANIMACIÓN ZOOM --- */
+/* --- 4. HERO --- */
 .hero-container {
   width: 100%;
   height: 70vh;
@@ -109,11 +74,7 @@ h5,
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.45)
-  );
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.45));
   z-index: 1;
 }
 .img-hero-curated {
@@ -124,15 +85,10 @@ h5,
   position: absolute;
   z-index: 0;
   animation: heroZoomIn 10s ease-out forwards;
-  will-change: transform;
 }
 @keyframes heroZoomIn {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }
 .hero-content {
   position: relative;
@@ -144,7 +100,7 @@ h5,
   color: var(--velez-cyan);
 }
 
-/* --- 5. BOTONES UNIFICADOS --- */
+/* --- 5. BOTONES --- */
 .btn-velez-primary {
   background-color: var(--velez-blue);
   color: #ffffff !important;
@@ -165,7 +121,7 @@ h5,
   box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
 }
 
-/* --- 6. PERFIL PERFECTO --- */
+/* --- 6. PERFIL --- */
 .section-profile-perfect {
   background-color: var(--professional-grey);
   height: 25vh;
@@ -181,7 +137,7 @@ h5,
   border-radius: 50%;
 }
 
-/* --- 7. EQUIPO --- */
+/* --- 7. EQUIPO (JERARQUÍA ESTABLE) --- */
 .img-team {
   width: 130px;
   height: 130px;
@@ -194,104 +150,6 @@ h5,
   transform: scale(1.1);
   border-color: var(--velez-cyan);
 }
-
-/* --- 8. SERVICIOS Y CURSOS --- */
-.service-card,
-.course-card {
-  transition: var(--transition-bounce);
-}
-.img-service-png,
-.img-course-rounded {
-  transition: var(--transition-bounce);
-}
-.service-card:hover .img-service-png,
-.course-card:hover .img-course-rounded {
-  transform: translateY(-15px) scale(1.1);
-}
-.service-card:hover h4,
-.course-card:hover h5 {
-  color: var(--velez-cyan) !important;
-}
-.img-service-png {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-}
-.img-course-rounded {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #fff;
-}
-
-/* --- 9. SECCIÓN CURSOS --- */
-.section-courses-grey {
-  background-color: var(--professional-grey);
-  padding: 80px 0;
-  border-top: 1px solid #dee2e6;
-}
-
-/* --- 10. SECCIÓN LIBRO (Ajustada con Hover) --- */
-.section-book-integrated {
-  background-color: #ffffff;
-  padding: 0;
-  overflow: hidden;
-}
-.img-book-large {
-  width: 100%;
-  max-width: 550px;
-  height: auto;
-  display: block;
-  transition: var(--transition-bounce);
-}
-.img-book-large:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-/* --- 11. UTILIDADES Y WHATSAPP --- */
-section {
-  padding: 60px 0;
-}
-.section-dark {
-  background-color: var(--velez-blue);
-  color: #fff;
-}
-.color-azul-velez {
-  color: var(--velez-blue) !important;
-}
-.whatsapp-float {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: var(--whatsapp-green);
-  color: #fff;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  z-index: 1000;
-}
-.whatsapp-float:hover {
-  transform: scale(1.1) rotate(10deg);
-}
-
-@media (max-width: 768px) {
-  .section-profile-perfect {
-    height: auto;
-    padding: 40px 0 !important;
-  }
-  .img-book-large {
-    max-width: 320px;
-    margin: 20px auto;
-  }
-}
-
-/* ===== JERARQUÍA TIPOGRÁFICA EXCLUSIVA SECCIÓN EQUIPO ===== */
 
 #equipo .team-name {
   font-family: 'Oswald', sans-serif;
@@ -319,4 +177,113 @@ section {
   line-height: 1.2;
   color: rgba(255,255,255,0.75);
   margin-bottom: 0;
+}
+
+/* --- 8. SERVICIOS Y CURSOS --- */
+.service-card, .course-card { transition: var(--transition-bounce); }
+.img-service-png { width: 140px; height: 140px; object-fit: contain; }
+.img-course-rounded { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #fff; }
+
+.service-card:hover .img-service-png, .course-card:hover .img-course-rounded {
+  transform: translateY(-15px) scale(1.1);
+}
+
+.section-courses-grey {
+  background-color: var(--professional-grey);
+  padding: 80px 0;
+  border-top: 1px solid #dee2e6;
+}
+
+/* --- 9. SECCIÓN LIBRO --- */
+.section-book-integrated { background-color: #ffffff; padding: 0; overflow: hidden; }
+.img-book-large {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  display: block;
+  transition: var(--transition-bounce);
+}
+.img-book-large:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* --- 10. CONFIANZA / LOGOS MARQUEE (ESTABLE CON ESFUMADO) --- */
+.logos-marquee {
+    overflow: hidden;
+    padding: 0; 
+    background: transparent;
+    white-space: nowrap;
+    position: relative;
+    
+    /* Efecto esfumado lateral para evitar el corte brusco */
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.logos-marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 70px; 
+    animation: scrollLogos 45s linear infinite;
+}
+
+.logos-marquee img {
+    height: 90px;
+    width: auto;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logos-marquee:hover .logos-marquee-track {
+    animation-play-state: paused;
+}
+
+.logos-marquee img:hover {
+    transform: scale(1.15); 
+    cursor: pointer;
+}
+
+@keyframes scrollLogos {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* --- 11. UTILIDADES Y WHATSAPP --- */
+section { padding: 60px 0; }
+.section-dark { background-color: var(--velez-blue); color: #fff; }
+.color-azul-velez { color: var(--velez-blue) !important; }
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--whatsapp-green);
+  color: #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .section-profile-perfect { height: auto; padding: 40px 0 !important; }
+  .img-book-large { max-width: 320px; margin: 20px auto; }
+  .logos-marquee img { height: 60px; }
+  .logos-marquee-track { gap: 35px; }
 }
