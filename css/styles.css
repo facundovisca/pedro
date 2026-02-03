@@ -1,4 +1,4 @@
-/* --- 1. VARIABLES --- */
+/* --- 1. VARIABLES & CONFIGURACIÓN GLOBAL --- */
 :root {
   --velez-blue: #002d5e;
   --velez-blue-light: #004a99;
@@ -9,7 +9,6 @@
   --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* --- 2. BASE & TIPOGRAFÍA --- */
 body {
   font-family: "Inter", sans-serif;
   font-weight: 300;
@@ -31,6 +30,49 @@ h5,
   letter-spacing: 1px;
 }
 
+section {
+  padding: 80px 0;
+}
+.section-dark {
+  background-color: var(--velez-blue);
+  color: #fff;
+}
+.section-courses-grey {
+  background-color: var(--professional-grey);
+  border-top: 1px solid #dee2e6;
+}
+.color-azul-velez {
+  color: var(--velez-blue) !important;
+}
+
+/* --- 2. COMPONENTES COMUNES (Botones & Cards) --- */
+.btn-velez-primary {
+  background-color: var(--velez-blue);
+  color: #ffffff !important;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 2px solid var(--velez-blue);
+  transition: var(--transition-bounce);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-velez-primary:hover {
+  background-color: var(--velez-cyan);
+  border-color: var(--velez-cyan);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
+}
+
+.service-card,
+.course-card,
+.team-card {
+  transition: var(--transition-bounce);
+}
+
 /* --- 3. NAVBAR --- */
 .main-nav {
   background-color: var(--velez-blue);
@@ -43,22 +85,37 @@ h5,
 .navbar-brand,
 .nav-link {
   position: relative;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   display: inline-block;
   text-decoration: none;
+  color: #fff !important;
+}
+
+/* ✨ SUBRAYADO ANIMADO */
+.navbar-brand::after,
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-brand:hover::after,
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 .navbar-brand {
   font-size: 1.2rem;
-  color: #fff !important;
   margin-right: 2rem;
 }
-
 .nav-link {
   font-size: 0.85rem;
-  color: #fff !important;
   padding: 10px 0.7rem !important;
 }
 
@@ -79,6 +136,7 @@ h5,
   justify-content: center;
   overflow: hidden;
 }
+
 .hero-container::after {
   content: "";
   position: absolute;
@@ -90,6 +148,7 @@ h5,
   );
   z-index: 1;
 }
+
 .img-hero-curated {
   width: 100%;
   height: 100%;
@@ -99,14 +158,12 @@ h5,
   z-index: 0;
   animation: heroZoomIn 10s ease-out forwards;
 }
+
 @keyframes heroZoomIn {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -117,31 +174,11 @@ h5,
   color: var(--velez-cyan);
 }
 
-/* --- 5. BOTONES --- */
-.btn-velez-primary {
-  background-color: var(--velez-blue);
-  color: #ffffff !important;
-  padding: 12px 35px;
-  border-radius: 50px;
-  font-family: "Oswald", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 2px solid var(--velez-blue);
-  transition: var(--transition-bounce);
-  display: inline-block;
-  text-decoration: none;
-}
-.btn-velez-primary:hover {
-  background-color: var(--velez-cyan);
-  border-color: var(--velez-cyan);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
-}
+/* --- 5. SECCIONES ESPECÍFICAS --- */
 
-/* --- 6. PERFIL --- */
+/* Perfil */
 .section-profile-perfect {
   background-color: var(--professional-grey);
-  height: 25vh;
   min-height: 180px;
   display: flex;
   align-items: center;
@@ -154,88 +191,43 @@ h5,
   border-radius: 50%;
 }
 
-/* --- 7. EQUIPO (JERARQUÍA ESTABLE) --- */
+/* Equipo */
 .img-team {
   width: 130px;
   height: 130px;
   object-fit: cover;
   border-radius: 50%;
   transition: var(--transition-bounce);
-  border: 3px solid rgba(255, 255, 255, 0.1);
+  border: 3px solid var(--velez-cyan);
 }
 .team-card:hover .img-team {
   transform: scale(1.1);
-  border-color: var(--velez-cyan);
+  box-shadow: 0 0 15px var(--velez-cyan);
 }
-
-#equipo .team-name {
-  font-family: "Oswald", sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+.team-name {
+  font-size: 1.5rem;
   color: #ffffff;
   margin-bottom: 2px;
 }
-
-#equipo .team-role {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+.team-role {
+  font-size: 0.8rem;
   color: var(--velez-cyan);
-  margin-bottom: 6px;
+  text-transform: uppercase;
 }
-
-#equipo .team-specialty {
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
+.team-specialty {
   font-size: 0.75rem;
-  line-height: 1.2;
   color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 0;
 }
 
-/* --- 8. SERVICIOS Y CURSOS --- */
-.service-card,
-.course-card {
-  transition: var(--transition-bounce);
-}
-.img-service-png {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-}
-.img-course-rounded {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #fff;
-}
-
-.service-card:hover .img-service-png,
-.course-card:hover .img-course-rounded {
-  transform: translateY(-15px) scale(1.1);
-}
-
-.section-courses-grey {
-  background-color: var(--professional-grey);
-  padding: 80px 0;
-  border-top: 1px solid #dee2e6;
-}
-
-/* --- 9. SECCIÓN LIBRO --- */
+/* Libro */
 .section-book-integrated {
   background-color: #ffffff;
-  padding: 0;
+  padding: 40px 0;
   overflow: hidden;
 }
 .img-book-large {
   width: 100%;
   max-width: 550px;
-  height: auto;
-  display: block;
   transition: var(--transition-bounce);
 }
 .img-book-large:hover {
@@ -243,53 +235,86 @@ h5,
   cursor: pointer;
 }
 
-/* --- 10. CONFIANZA / LOGOS MARQUEE (ESTABLE CON ESFUMADO) --- */
+/* Servicios (5 Columnas) */
+#servicios .img-service-png {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+#servicios .service-title {
+  font-size: 1.15rem !important;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  min-height: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#servicios .service-card:hover .img-service-png {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* Cursos (4 Columnas) */
+#cursos .img-course-rounded {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+#cursos .course-title {
+  font-size: 1.25rem !important;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+#cursos .course-card:hover .img-course-rounded {
+  transform: translateY(-15px) scale(1.05);
+}
+
+/* Podcast */
+.podcast-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 45, 94, 0.08);
+  transition: var(--transition-bounce);
+}
+.podcast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 45, 94, 0.15);
+}
+
+/* --- 6. LOGOS MARQUEE --- */
 .logos-marquee {
   overflow: hidden;
-  padding: 0;
-  background: transparent;
-  white-space: nowrap;
   position: relative;
-
-  /* Efecto esfumado lateral para evitar el corte brusco */
   mask-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 15%,
-    rgba(0, 0, 0, 1) 85%,
-    rgba(0, 0, 0, 0) 100%
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
   );
   -webkit-mask-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 15%,
-    rgba(0, 0, 0, 1) 85%,
-    rgba(0, 0, 0, 0) 100%
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
   );
 }
-
 .logos-marquee-track {
   display: inline-flex;
   align-items: center;
   gap: 70px;
   animation: scrollLogos 45s linear infinite;
 }
-
 .logos-marquee img {
   height: 90px;
   width: auto;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s;
 }
-
-.logos-marquee:hover .logos-marquee-track {
-  animation-play-state: paused;
-}
-
-.logos-marquee img:hover {
-  transform: scale(1.15);
-  cursor: pointer;
-}
-
 @keyframes scrollLogos {
   from {
     transform: translateX(0);
@@ -299,17 +324,7 @@ h5,
   }
 }
 
-/* --- 11. UTILIDADES Y WHATSAPP --- */
-section {
-  padding: 60px 0;
-}
-.section-dark {
-  background-color: var(--velez-blue);
-  color: #fff;
-}
-.color-azul-velez {
-  color: var(--velez-blue) !important;
-}
+/* --- 7. UTILIDADES & WHATSAPP --- */
 .whatsapp-float {
   position: fixed;
   bottom: 30px;
@@ -319,185 +334,43 @@ section {
   width: 55px;
   height: 55px;
   border-radius: 50%;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  z-index: 1000;
-  text-decoration: none;
+}
+
+/* --- 8. RESPONSIVE (MEDIA QUERIES CONSOLIDADOS) --- */
+@media (max-width: 1200px) {
+  #servicios .col-md-2 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+  #cursos .col-md-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
 @media (max-width: 768px) {
-  .section-profile-perfect {
-    height: auto;
-    padding: 40px 0 !important;
+  section {
+    padding: 40px 0;
   }
   .img-book-large {
     max-width: 320px;
-    margin: 20px auto;
+  }
+  #servicios .col-6 {
+    margin-bottom: 20px;
+  }
+  #cursos .col-md-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
   .logos-marquee img {
     height: 60px;
   }
-  .logos-marquee-track {
-    gap: 35px;
-  }
-}
-
-/* --- 12. SECCIÓN PODCAST --- */
-.podcast-card {
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 45, 94, 0.08);
-  border: 1px solid rgba(0, 45, 94, 0.05);
-  overflow: hidden;
-  transition: var(--transition-bounce);
-}
-
-.podcast-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0, 45, 94, 0.15);
-}
-
-#podcast .color-azul-velez {
-  font-size: 1.75rem;
-  line-height: 1.2;
-}
-
-@media (max-width: 768px) {
   .podcast-card {
     margin: 0 10px;
   }
-  #podcast .color-azul-velez {
-    font-size: 1.5rem;
-  }
-}
-
-/* --- 13. AJUSTES ESPECÍFICOS PARA 4 CURSOS --- */
-
-/* Bajamos el tamaño de las fotos solo en la sección cursos para que entren en línea */
-#cursos .img-course-rounded {
-  width: 150px;
-  height: 150px;
-}
-
-/* Ajustamos el tamaño de los títulos para que no se amontonen */
-#cursos .course-card h5 {
-  font-size: 0.95rem;
-  margin-top: 10px;
-  min-height: 2.4em; /* Mantiene la alineación si el título tiene 2 líneas */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Forzamos que en pantallas medianas (tablets/laptops chicas) se vean de a 2 y no se rompa el layout */
-@media (min-width: 768px) and (max-width: 1200px) {
-  #cursos .col-md-3 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    margin-bottom: 30px;
-  }
-}
-
-/* En móviles se ven de a 1 bien grandes */
-@media (max-width: 767px) {
-  #cursos .col-md-3 {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-bottom: 40px;
-  }
-}
-
-/* --- AJUSTE DE TAMAÑO EN CURSOS --- */
-#cursos .course-title {
-    font-size: 1.25rem !important; /* Títulos más grandes y legibles */
-    line-height: 1.1;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-}
-
-#cursos .img-course-rounded {
-    width: 160px; /* Un poquito más de presencia que los 150px anteriores */
-    height: 160px;
-    transition: var(--transition-bounce);
-}
-
-/* Espaciado para descripciones */
-#cursos .course-card p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    padding: 0 10px;
-}
-
-/* Responsivo para tablets: se ven 2 y 2 con buen tamaño */
-@media (max-width: 991px) {
-    #cursos .col-md-3 {
-        flex: 0 0 50%;
-        max-width: 50%;
-        margin-bottom: 30px;
-    }
-}
-
-/* --- DEBUG SERVICIOS 5 COLUMNAS --- */
-#servicios .img-service-png {
-    width: 150px; /* Reducimos el tamaño para que entren los 5 cómodos */
-    height: 150px;
-    object-fit: contain;
-    transition: var(--transition-bounce);
-}
-
-#servicios .service-card h4 {
-    min-height: 2.5em; /* Alinea los títulos aunque tengan distinto largo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.2;
-}
-
-#servicios .service-card:hover .img-service-png {
-    transform: translateY(-10px) scale(1.1);
-}
-
-@media (max-width: 768px) {
-    #servicios .col-6 {
-        margin-bottom: 20px; /* En móvil se ven de a 2 por fila */
-    }
-}
-
-/* --- UNIFICACIÓN ESTÉTICA SERVICIOS --- */
-#servicios .img-service-png {
-    width: 150px; /* Aumentado de 100px a 150px según pedido */
-    height: 150px;
-    object-fit: contain;
-    transition: var(--transition-bounce);
-}
-
-#servicios .service-title {
-    font-family: "Oswald", sans-serif;
-    font-size: 1.15rem !important; /* Mismo tamaño impactante que Cursos */
-    line-height: 1.1;
-    margin-bottom: 12px;
-    min-height: 2.2em; /* Mantiene la alineación horizontal perfecta */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#servicios .service-card p {
-    font-size: 0.8rem;
-    line-height: 1.3;
-}
-
-#servicios .service-card:hover .img-service-png {
-    transform: translateY(-10px) scale(1.05);
-}
-
-/* Ajuste responsivo para que no se amontonen en pantallas medianas */
-@media (max-width: 1200px) {
-    #servicios .col-md-2 {
-        flex: 0 0 33.33%;
-        max-width: 33.33%;
-        margin-bottom: 30px;
-    }
 }
