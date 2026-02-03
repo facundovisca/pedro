@@ -418,7 +418,7 @@ section {
   }
 }
 
-/* ================= HERO FIX SIN ROMPER NADA ================= */
+/* ================= HERO PRO VERSION ================= */
 
 #hero {
   position: relative;
@@ -426,7 +426,8 @@ section {
 
 #hero .hero-container {
   position: relative;
-  height: 75vh;
+  height: 78vh;
+  min-height: 520px;
   overflow: hidden;
 }
 
@@ -436,60 +437,74 @@ section {
   object-fit: cover;
 }
 
-/* Oscurecer imagen */
+/* Oscurecer imagen para que el texto explote */
 #hero .hero-container::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.45));
+  background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.55));
   z-index: 1;
 }
 
-/* Contenido del texto */
+/* CONTENIDO CENTRADO */
 #hero .hero-content {
   position: absolute;
   top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   color: #fff;
-  max-width: 650px;
-  text-align: left;
+  text-align: center;
+  width: 90%;
+  max-width: 1000px;
 }
 
-/* Título */
+/* TÍTULO GIGANTE */
 #hero .hero-title {
-  font-size: 3.2rem;
+  font-size: 4rem;
   line-height: 1.05;
-  text-shadow: 0 5px 25px rgba(0,0,0,0.6);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 10px 35px rgba(0,0,0,0.7);
 }
 
 #hero .hero-title span {
   display: block;
-  color: #00a8ff;
+  color: var(--velez-cyan);
+  font-size: 4.4rem;
 }
 
 /* Subtítulo */
 #hero .hero-subtitle {
-  font-size: 1.2rem;
-  margin: 20px 0;
+  font-size: 1.3rem;
+  margin: 25px auto;
+  max-width: 700px;
+  opacity: 0.95;
 }
 
-/* Botón */
+/* Botón más protagonista */
 #hero .btn-velez-primary {
-  padding: 15px 45px;
+  padding: 16px 50px;
   border-radius: 60px;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  margin-top: 10px;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  #hero .hero-content {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+@media (max-width: 992px) {
+  #hero .hero-title {
+    font-size: 2.6rem;
   }
+  #hero .hero-title span {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 600px) {
   #hero .hero-title {
     font-size: 2rem;
+  }
+  #hero .hero-subtitle {
+    font-size: 1rem;
   }
 }
