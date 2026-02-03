@@ -602,3 +602,116 @@ section {
   text-align: center;
 }
 
+
+/* ================= SERVICIOS — ULTRA PREMIUM ================= */
+
+/* La tarjeta ahora es el "contenedor de experiencia" */
+#servicios .service-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 18px 25px;
+  height: 100%;
+  box-shadow: 0 10px 25px rgba(0, 45, 94, 0.06);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea superior de acento sutil */
+#servicios .service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--velez-blue), var(--velez-cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover general de tarjeta */
+#servicios .service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 55px rgba(0, 45, 94, 0.14);
+}
+
+#servicios .service-card:hover::before {
+  opacity: 1;
+}
+
+/* ---------------- ICONO ---------------- */
+
+#servicios .img-service-png {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 18px;
+  transition: transform 0.45s ease;
+}
+
+#servicios .service-card:hover .img-service-png {
+  transform: translateY(-6px) scale(1.08);
+}
+
+/* ---------------- TITULO ---------------- */
+
+#servicios .service-title {
+  position: relative;
+  padding-bottom: 18px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+/* Línea base */
+#servicios .service-title::after {
+  content: "";
+  width: 42px;
+  height: 3px;
+  background: var(--velez-cyan);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+/* Hover sincronizado */
+#servicios .service-card:hover .service-title {
+  color: var(--velez-blue-light);
+}
+
+/* La línea ahora REACCIONA */
+#servicios .service-card:hover .service-title::after {
+  width: 70px;
+  background: var(--velez-blue);
+}
+
+/* ---------------- TEXTO ---------------- */
+
+#servicios .service-card p {
+  font-size: 0.9rem;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+#servicios .service-card:hover p {
+  color: #333;
+}
+
+@media (max-width: 576px) {
+  #servicios .service-card {
+    padding: 28px 22px;
+  }
+
+  #servicios .img-service-png {
+    width: 110px;
+    height: 110px;
+  }
+
+  #servicios .service-title {
+    font-size: 1rem !important;
+  }
+
+  #servicios .service-card p {
+    font-size: 0.85rem;
+  }
+}
