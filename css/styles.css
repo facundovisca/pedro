@@ -287,3 +287,32 @@ section { padding: 60px 0; }
   .logos-marquee img { height: 60px; }
   .logos-marquee-track { gap: 35px; }
 }
+
+/* --- 12. SECCIÓN PODCAST --- */
+.podcast-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 45, 94, 0.08);
+    border: 1px solid rgba(0, 45, 94, 0.05);
+    overflow: hidden;
+    transition: var(--transition-bounce);
+}
+
+.podcast-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 45, 94, 0.15);
+}
+
+#podcast .color-azul-velez {
+    font-size: 1.75rem;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .podcast-card {
+        margin: 0 10px;
+    }
+    #podcast .color-azul-velez {
+        font-size: 1.5rem;
+    }
+}
