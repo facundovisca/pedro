@@ -118,22 +118,13 @@ section {
 }
 
 .navbar-brand {
-<<<<<<< HEAD
-  font-size: 1.3rem;
-=======
   font-size: 1.2rem;
->>>>>>> 5cc3dbfd8bd8c0c4cde4892499e79936d0785c79
   margin-right: 2rem;
 }
 
 .nav-link {
-<<<<<<< HEAD
-  font-size: 1rem;
-  padding: 10px 0.6rem !important;
-=======
   font-size: 0.85rem;
   padding: 10px 0.7rem !important;
->>>>>>> 5cc3dbfd8bd8c0c4cde4892499e79936d0785c79
 }
 
 .navbar-brand:hover,
@@ -287,29 +278,23 @@ section {
   }
 
   #hero .hero-title span {
-<<<<<<< HEAD
     font-size: 2rem;
-=======
     font-size: 2.4rem;
->>>>>>> 5cc3dbfd8bd8c0c4cde4892499e79936d0785c79
   }
 }
 
 @media (max-width: 600px) {
   #hero .hero-title {
-<<<<<<< HEAD
     font-size: 1.7rem;
   }
 
   #hero .hero-subtitle {
     font-size: 0.9rem;
-=======
     font-size: 2rem;
   }
 
   #hero .hero-subtitle {
     font-size: 1rem;
->>>>>>> 5cc3dbfd8bd8c0c4cde4892499e79936d0785c79
   }
 }
 /* --- 5. PERFIL (MEJORA VISUAL PRO) --- */
@@ -971,23 +956,16 @@ section {
 
 .editorial-bridge h3 {
   font-size: 1.4rem;
-<<<<<<< HEAD
   font-weight: 700;
   line-height: 1.35;
-=======
   font-weight: 600;
   line-height: 1.35;
   color: #004a99;
->>>>>>> 5cc3dbfd8bd8c0c4cde4892499e79936d0785c79
   margin-bottom: 1rem;
 }
 
 .editorial-bridge p {
-<<<<<<< HEAD
-  font-size: 1rem;
-=======
   font-size: 0.9rem;
->>>>>>> 5cc3dbfd8bd8c0c4cde4892499e79936d0785c79
   line-height: 1.6;
   color: #444;
   max-width: 700px;
@@ -1002,7 +980,6 @@ section {
     height: 35vh;
   }
 }
-<<<<<<< HEAD
 
 /* =========================
    SECCIÓN CONFIANZA
@@ -1010,7 +987,7 @@ section {
 
 #confianza h2,
 #confianza h3 {
-  font-size: 1.6rem;   /* antes se veía más grande */
+  font-size: 1.6rem; /* antes se veía más grande */
   letter-spacing: 1px;
   margin: 0.5rem;
   padding: 0.2rem;
@@ -1022,6 +999,3 @@ section {
     font-size: 0.9rem;
   }
 }
-
-=======
->>>>>>> 5cc3dbfd8bd8c0c4cde4892499e79936d0785c79
