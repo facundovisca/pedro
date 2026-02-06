@@ -1,0 +1,993 @@
+/* --- 1. VARIABLES & CONFIGURACIÓN GLOBAL --- */
+:root {
+  --velez-blue: #002d5e;
+  --velez-blue-light: #004a99;
+  --velez-cyan: #00a8ff;
+  --whatsapp-green: #25d366;
+  --professional-grey: #e9ecef;
+  --transition-smooth: all 0.3s ease;
+  --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #333;
+  padding-top: 50px;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.main-nav {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-dark {
+  background-color: var(--velez-blue);
+  color: #fff;
+}
+
+.section-courses-grey {
+  background-color: var(--professional-grey);
+  border-top: 1px solid #dee2e6;
+}
+
+.color-azul-velez {
+  color: var(--velez-blue) !important;
+}
+
+/* --- 2. COMPONENTES COMUNES --- */
+.btn-velez-primary {
+  background-color: var(--velez-blue);
+  color: #ffffff !important;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 2px solid var(--velez-blue);
+  transition: var(--transition-bounce);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-velez-primary:hover {
+  background-color: var(--velez-cyan);
+  border-color: var(--velez-cyan);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
+}
+
+.service-card,
+.course-card,
+.team-card {
+  transition: var(--transition-bounce);
+}
+
+/* --- 3. NAVBAR --- */
+.main-nav {
+  background-color: var(--velez-blue);
+  z-index: 1100;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand,
+.nav-link {
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff !important;
+}
+
+/* SUBRAYADO ANIMADO */
+.navbar-brand::after,
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition:
+    width 0.3s ease,
+    left 0.3s ease;
+}
+
+.navbar-brand:hover::after,
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.navbar-brand {
+  font-size: 1.3rem;
+  margin-right: 2rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  padding: 10px 0.6rem !important;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: var(--velez-cyan) !important;
+  transform: scale(1.05);
+}
+
+/* ================= HERO UNIFICADO ================= */
+
+#hero {
+  position: relative;
+  height: calc(75vh - 50px); /* 75% viewport - navbar */
+  min-height: 600px;
+}
+
+/* Contenedor principal */
+#hero .hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Imagen */
+#hero .img-hero-curated {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  z-index: 0;
+  animation: heroZoomIn 10s ease-out forwards;
+}
+
+/* Overlay oscuro */
+#hero .hero-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
+}
+
+/* Contenido */
+#hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  width: 90%;
+  max-width: 820px;
+}
+
+/* Título */
+#hero .hero-title {
+  font-size: 3.4rem;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+}
+
+#hero .hero-title span {
+  display: block;
+  color: var(--velez-cyan);
+  font-size: 3.6rem;
+}
+
+/* Subtítulo */
+#hero .hero-subtitle {
+  font-size: 1.1rem;
+  margin: 22px auto;
+  max-width: 680px;
+  opacity: 0.95;
+}
+
+/* Botón */
+#hero .btn-velez-primary {
+  padding: 16px 48px;
+  border-radius: 60px;
+  font-size: 1.05rem;
+  margin-top: 14px;
+}
+
+/* Fade inferior */
+#hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  pointer-events: none;
+}
+
+/* Animación */
+@keyframes heroZoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  #hero {
+    height: calc(70vh - 50px);
+    min-height: 520px;
+  }
+
+  #hero .hero-title {
+    font-size: 2.6rem;
+  }
+
+  #hero .hero-title span {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: auto;
+    min-height: auto;
+  }
+
+  #hero .hero-container {
+    padding: 5rem 1.5rem;
+  }
+
+  #hero .hero-title {
+    font-size: 2.2rem;
+  }
+
+  #hero .hero-title span {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #hero .hero-title {
+    font-size: 1.7rem;
+  }
+
+  #hero .hero-subtitle {
+    font-size: 0.9rem;
+  }
+}
+/* --- 5. PERFIL (MEJORA VISUAL PRO) --- */
+.section-profile-perfect {
+  background-color: var(--professional-grey);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Halo azul moderno */
+.section-profile-perfect::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 168, 255, 0.15) 0%,
+    rgba(0, 168, 255, 0) 70%
+  );
+  top: -120px;
+  left: -120px;
+  z-index: 0;
+}
+
+/* Círculo gráfico sutil */
+.section-profile-perfect::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba(0, 168, 255, 0.2);
+  border-radius: 50%;
+  bottom: -100px;
+  right: 10%;
+  z-index: 0;
+}
+
+.section-profile-perfect .container {
+  position: relative;
+  z-index: 2;
+}
+
+.img-pedro-profile {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* --- RESTO DE TUS SECCIONES (SIN CAMBIOS) --- */
+/* Equipo */
+.img-team {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: var(--transition-bounce);
+  border: 3px solid var(--velez-cyan);
+}
+.team-card:hover .img-team {
+  transform: scale(1.1);
+}
+.team-name {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+.team-role {
+  font-size: 0.75rem;
+  color: var(--velez-cyan);
+  text-transform: uppercase;
+}
+.team-specialty {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Libro */
+.section-book-integrated {
+  background-color: #ffffff;
+  padding: 40px 0;
+  overflow: hidden;
+}
+.img-book-large {
+  width: 100%;
+  max-width: 550px;
+  transition: var(--transition-bounce);
+}
+.img-book-large:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Cursos */
+#cursos .img-course-rounded {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+#cursos .course-title {
+  font-size: 1.25rem !important;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+#cursos .course-card:hover .img-course-rounded {
+  transform: translateY(-15px) scale(1.05);
+}
+
+/* Podcast */
+.podcast-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 45, 94, 0.08);
+  transition: var(--transition-bounce);
+}
+.podcast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 45, 94, 0.15);
+}
+
+/* Logos */
+.logos-marquee {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+.logos-marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 70px;
+  animation: scrollLogos 45s linear infinite;
+}
+.logos-marquee img {
+  height: 90px;
+  width: auto;
+  transition: transform 0.4s;
+}
+
+@keyframes scrollLogos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  #servicios .col-md-2 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+  #cursos .col-md-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 0;
+  }
+  .img-book-large {
+    max-width: 320px;
+  }
+  #servicios .col-6 {
+    margin-bottom: 20px;
+  }
+  #cursos .col-md-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .logos-marquee img {
+    height: 60px;
+  }
+  .podcast-card {
+    margin: 0 10px;
+  }
+}
+
+/* =========================
+   WHATSAPP FLOAT BUTTON
+========================= */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  background-color: #25d366;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  text-decoration: none;
+
+  z-index: 9999;
+
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+
+  /* ESTADO INICIAL (OCULTO) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s ease;
+}
+
+/* ESTADO VISIBLE */
+.whatsapp-float.whatsapp-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* HOVER */
+.whatsapp-float:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+  }
+}
+
+/* ================= SERVICIOS — ULTRA PREMIUM ================= */
+
+/* La tarjeta ahora es el "contenedor de experiencia" */
+#servicios .service-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 18px 25px;
+  height: 100%;
+  box-shadow: 0 10px 25px rgba(0, 45, 94, 0.06);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea superior de acento sutil */
+#servicios .service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--velez-blue), var(--velez-cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover general de tarjeta */
+#servicios .service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 55px rgba(0, 45, 94, 0.14);
+}
+
+#servicios .service-card:hover::before {
+  opacity: 1;
+}
+
+/* ---------------- ICONO ---------------- */
+
+#servicios .img-service-png {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 18px;
+  transition: transform 0.45s ease;
+}
+
+#servicios .service-card:hover .img-service-png {
+  transform: translateY(-6px) scale(1.08);
+}
+
+/* ---------------- TITULO ---------------- */
+
+#servicios .service-title {
+  position: relative;
+  padding-bottom: 18px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+/* Línea base */
+#servicios .service-title::after {
+  content: "";
+  width: 42px;
+  height: 3px;
+  background: var(--velez-cyan);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+/* Hover sincronizado */
+#servicios .service-card:hover .service-title {
+  color: var(--velez-blue-light);
+}
+
+/* La línea ahora REACCIONA */
+#servicios .service-card:hover .service-title::after {
+  width: 70px;
+  background: var(--velez-blue);
+}
+
+/* ---------------- TEXTO ---------------- */
+
+#servicios .service-card p {
+  font-size: 0.9rem;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+#servicios .service-card:hover p {
+  color: #333;
+}
+
+@media (max-width: 576px) {
+  #servicios .service-card {
+    padding: 28px 22px;
+  }
+
+  #servicios .img-service-png {
+    width: 110px;
+    height: 110px;
+  }
+
+  #servicios .service-title {
+    font-size: 1rem !important;
+  }
+
+  #servicios .service-card p {
+    font-size: 0.85rem;
+  }
+}
+
+.team-sub {
+  color: #5bbcff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.team-decoration {
+  position: absolute;
+  right: -150px;
+  bottom: -120px;
+  width: 500px;
+  height: 500px;
+  border: 2px solid rgba(30, 165, 255, 0.25);
+  border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .team-member {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.team-section {
+  padding: 60px 0; /* antes 100px */
+}
+
+.team-intro h2 {
+  font-size: 38px;
+}
+
+.team-member img {
+  width: 85px;
+  height: 85px;
+}
+
+.team-members {
+  gap: 25px;
+}
+
+/* ===============================
+   SECCIÓN EQUIPO
+================================ */
+.equipo-section {
+  position: relative;
+  background: linear-gradient(135deg, #0c2d57, #123d6b);
+  padding: 90px 20px 100px;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.equipo-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Título */
+.equipo-titulo {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.equipo-subtitulo {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+/* Miembros */
+.equipo-miembros {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+/* Cada perfil */
+.equipo-miembro {
+  max-width: 320px;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.equipo-miembro:hover {
+  transform: translateY(-6px);
+  filter: brightness(1.1);
+}
+
+/* Foto */
+.equipo-foto {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #4db3ff, #ffffff);
+}
+
+.equipo-foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Nombre */
+.equipo-miembro h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+/* Rol */
+.equipo-rol {
+  display: block;
+  color: #4db3ff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Descripción */
+.equipo-miembro p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ===============================
+   DECORACIONES
+================================ */
+
+.equipo-circulo-grande {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  right: -250px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .equipo-miembros {
+    gap: 60px;
+  }
+
+  .equipo-titulo {
+    font-size: 2.3rem;
+  }
+
+  .equipo-section {
+    padding: 70px 20px 80px;
+  }
+}
+
+#equipo {
+  position: relative;
+  padding: 80px 20px; /* antes era enorme */
+  background: linear-gradient(135deg, #0d2d50, #133c67);
+  color: white;
+  overflow: hidden;
+}
+
+/* Decoraciones */
+
+#equipo::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  bottom: -120px;
+  right: -120px;
+}
+
+.equipo-container {
+  max-width: 1100px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Título */
+.equipo-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.equipo-header h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.equipo-header p {
+  color: #c7d9ec;
+  font-size: 15px;
+}
+
+/* Miembros */
+.equipo-miembros {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+.miembro {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  max-width: 460px;
+}
+
+/* FOTO MÁS CHICA */
+.miembro img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+/* Texto */
+.miembro-info h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.miembro-info span {
+  color: #3db2ff;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.miembro-info p {
+  font-size: 14px;
+  color: #c7d9ec;
+  line-height: 1.5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .miembro {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+#equipo {
+  padding: 60px 20px;
+}
+.equipo-header h2 {
+  font-size: 36px;
+}
+
+/* =========================
+   EDITORIAL BRIDGE (COMPACTA)
+========================= */
+
+.editorial-bridge {
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+}
+
+.editorial-bridge__content {
+  max-width: 760px; /* un poco más compacto */
+  text-align: center;
+}
+
+.editorial-bridge h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+.editorial-bridge p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  #hero {
+    height: calc(65vh - 50px);
+  }
+
+  .editorial-bridge {
+    height: 35vh;
+  }
+}
+
+/* =========================
+   SECCIÓN CONFIANZA
+========================= */
+
+#confianza h2,
+#confianza h3 {
+  font-size: 1.6rem;   /* antes se veía más grande */
+  letter-spacing: 1px;
+  margin: 0.5rem;
+  padding: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  #confianza h2,
+  #confianza h3 {
+    font-size: 0.9rem;
+  }
+}
+
