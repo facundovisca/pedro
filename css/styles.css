@@ -987,10 +987,10 @@ section {
 
 #confianza h2,
 #confianza h3 {
-  font-size: 1.6rem; /* antes se veía más grande */
+  font-size: 1.8rem; /* antes se veía más grande */
   letter-spacing: 1px;
   margin: 0.5rem;
-  padding: 0.2rem;
+  padding: 0.3rem;
 }
 
 @media (max-width: 768px) {
