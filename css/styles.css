@@ -413,7 +413,7 @@ section {
   #libro h2 {
     grid-area: titulo;
     text-align: center;
-    padding: 1px;
+    padding: 5px;
   }
 
   #libro h4 {
@@ -427,7 +427,6 @@ section {
   #libro .libro-descripcion {
     grid-area: texto;
     margin:0;
-    padding: 1rem:
   }
 
   #libro p.mb-3 {
