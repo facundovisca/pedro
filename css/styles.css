@@ -420,7 +420,7 @@ section {
     grid-area: subtitulo;
     text-align: center;
     font-size: 0.7rem;
-    padding: 1px;
+    padding: 0.6rem;
     font-weight: bold;
   }
 
@@ -439,15 +439,17 @@ section {
   #libro p.te-invito {
     text-align: center;
     padding: 0.5rem;
+    font-size: small;
   }
 
   /* columna imagen */
   #libro .col-md-6.col-lg-5.offset-lg-1 {
     grid-area: imagen;
+    padding: 0;
   }
 
   #libro .img-book-large {
-    max-width: 90%;
+    max-width: 83%;
     margin: 0;
     padding: 0;
   }
@@ -485,11 +487,11 @@ section {
 .logos-marquee-track {
   display: inline-flex;
   align-items: center;
-  gap: 70px;
-  animation: scrollLogos 45s linear infinite;
+  gap: 60px;
+  animation: scrollLogos 40s linear infinite;
 }
 .logos-marquee img {
-  height: 90px;
+  height: 75px;
   width: auto;
   transition: transform 0.4s;
 }
@@ -517,7 +519,7 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding: 40px 0;
+    padding: 30px;
   }
   .img-book-large {
     max-width: 320px;
@@ -535,6 +537,14 @@ section {
   .podcast-card {
     margin: 0 10px;
   }
+
+  .logos-marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  animation: scrollLogos 30s linear infinite;
+  padding: 0;
+}
 }
 
 /* =========================
@@ -1032,16 +1042,16 @@ section {
 
 #confianza h2,
 #confianza h3 {
-  font-size: 1.8rem; /* antes se veía más grande */
+  font-size: 1.6rem; /* antes se veía más grande */
   letter-spacing: 1px;
   margin: 0.5rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
 }
 
 @media (max-width: 768px) {
   #confianza h2,
   #confianza h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
@@ -1182,12 +1192,14 @@ section {
 
 .podcast-clean__eyebrow {
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7a8ca3;
-  margin-bottom: 1rem;
+  color: #6b82a1;
+  margin-bottom: 0.5rem;
 }
+
+/* POCAST */
 
 .podcast-clean__title {
   font-size: 2.2rem;
@@ -1227,10 +1239,28 @@ section {
   .podcast-clean__container {
     grid-template-columns: 1fr;
     gap: 3rem;
+    .podcast-clean__content {
+      text-align: center;
+    }
+
+    .podcast-clean__text {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .podcast-clean__player iframe {
     height: 220px;
+  }
+}
+@media (max-width: 900px) {
+  .podcast-clean__content {
+    text-align: center;
+  }
+
+  .podcast-clean__text {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -1255,6 +1285,19 @@ section {
 
 .podcast-clean__title {
   letter-spacing: 0.02em;
+}
+
+@media (max-width: 480px) {
+  .podcast-clean {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+}
+@media (max-width: 480px) {
+  .podcast-clean__player iframe {
+    margin-top: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
 }
 
 /* ===============================
