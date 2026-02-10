@@ -1,4 +1,3 @@
-
 /* ===============================
    1. WHATSAPP FLOAT — aparición con scroll
 ================================ */
@@ -22,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
    (ignora href="#" y links inválidos)
 ================================ */
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", e => {
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
     const href = link.getAttribute("href");
 
     // Ignorar anchors vacíos o #
@@ -36,7 +35,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     target.scrollIntoView({
       behavior: "smooth",
-      block: "start"
+      block: "start",
     });
   });
 });
@@ -49,7 +48,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 const navbarCollapse = document.querySelector(".navbar-collapse");
 
-navLinks.forEach(link => {
+navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     if (navbarCollapse.classList.contains("show")) {
       new bootstrap.Collapse(navbarCollapse).hide();
@@ -57,16 +56,15 @@ navLinks.forEach(link => {
   });
 });
 
+const toggle = document.querySelector(".ps-toggle");
+const menu = document.querySelector(".ps-menu");
 
- const toggle = document.querySelector(".ps-toggle");
-  const menu = document.querySelector(".ps-menu");
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
 
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
+document.querySelectorAll(".ps-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("active");
   });
-
-  document.querySelectorAll(".ps-link").forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
-    });
-  });
+});
