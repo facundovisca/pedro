@@ -1195,12 +1195,3 @@ section {
   letter-spacing: 0.02em;
 }
 
-.equipo-section {
-  position: relative;
-  background: linear-gradient(
-    to bottom,
-    var(--velez-blue) 0%,
-    var(--velez-blue-light) 100% border-top: 1px solid rgba(255, 255, 255, 0.08)
-      ;
-  );
-}
