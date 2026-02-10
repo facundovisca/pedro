@@ -391,6 +391,69 @@ section {
   cursor: pointer;
 }
 
+@media (max-width: 767.98px) {
+  #libro .row {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "titulo"
+      "subtitulo"
+      "imagen"
+      "boton"
+      "texto"
+  }
+
+  /* columna texto */
+  #libro .col-md-6.col-lg-5.text-center {
+    grid-area: texto;
+    display: contents;
+    
+  }
+
+  #libro h2 {
+    grid-area: titulo;
+    text-align: center;
+    padding: 1px;
+  }
+
+  #libro h4 {
+    grid-area: subtitulo;
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 1px;
+    font-weight: bold;
+  }
+
+  #libro .libro-descripcion {
+    grid-area: texto;
+    margin:0;
+    padding: 1rem:
+  }
+
+  #libro p.mb-3 {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: small;
+    margin-bottom: 0px;
+  }
+
+  #libro p.mb-0 {
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  /* columna imagen */
+  #libro .col-md-6.col-lg-5.offset-lg-1 {
+    grid-area: imagen;
+  }
+
+  #libro .img-book-large {
+    max-width: 90%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 /* Cursos */
 #cursos .img-course-rounded {
   width: 160px;
@@ -1382,5 +1445,26 @@ section {
 @media (max-width: 991px) {
   .ps-link:active {
     color: var(--velez-cyan);
+  }
+}
+
+/* Ajuste preciso para navbar fijo */
+#perfil,
+#servicios,
+#equipo,
+#libro,
+#cursos,
+#podcast-clean {
+  scroll-margin-top: 64px;
+}
+
+@media (min-width: 992px) {
+  #perfil,
+  #servicios,
+  #equipo,
+  #libro,
+  #cursos,
+  #podcast-clean {
+    scroll-margin-top: 56px;
   }
 }
