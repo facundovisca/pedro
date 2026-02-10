@@ -395,25 +395,25 @@ section {
   #libro .row {
     display: grid;
     grid-template-columns: 1fr;
+
     grid-template-areas:
       "titulo"
       "subtitulo"
       "imagen"
       "boton"
-      "texto"
+      "texto";
   }
 
   /* columna texto */
   #libro .col-md-6.col-lg-5.text-center {
     grid-area: texto;
     display: contents;
-    
   }
 
   #libro h2 {
     grid-area: titulo;
     text-align: center;
-    padding: 5px;
+    padding-top: 1rem;
   }
 
   #libro h4 {
@@ -426,17 +426,17 @@ section {
 
   #libro .libro-descripcion {
     grid-area: texto;
-    margin:0;
+    margin: 0;
   }
 
-  #libro p.mb-3 {
+  #libro p.parrafo-libro {
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.7rem;
     font-size: small;
     margin-bottom: 0px;
   }
 
-  #libro p.mb-0 {
+  #libro p.te-invito {
     text-align: center;
     padding: 0.5rem;
   }
