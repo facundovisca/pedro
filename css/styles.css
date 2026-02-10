@@ -1195,3 +1195,192 @@ section {
   letter-spacing: 0.02em;
 }
 
+
+/* ===============================
+   NAV PSICOLOGÍA DEPORTIVA
+   Mobile First
+================================ */
+
+/* BASE */
+#ps-nav {
+  background-color: var(--velez-blue);
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1100;
+}
+
+.ps-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* BRAND */
+.ps-brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.ps-brand span {
+  font-weight: 700;
+}
+
+/* TOGGLE */
+.ps-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* MENU (mobile) */
+.ps-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--velez-blue);
+  display: none;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.ps-menu.active {
+  display: flex;
+}
+
+/* LINKS */
+.ps-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* SOCIAL */
+.ps-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ps-social a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+/* ===============================
+   DESKTOP
+================================ */
+@media (min-width: 992px) {
+  .ps-toggle {
+    display: none;
+  }
+
+  .ps-menu {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    gap: 0.5rem;
+  }
+
+  .ps-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    position: relative;
+  }
+
+  /* Hover fino solo desktop */
+  .ps-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .ps-link:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .ps-social {
+    border: none;
+    margin: 0 0 0 1rem;
+    padding: 0;
+  }
+}
+.ps-brand {
+  position: relative;
+}
+
+.ps-brand::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.ps-brand:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.ps-brand:hover {
+  color: var(--velez-cyan);
+}
+
+
+/* Mobile: centrar contenido del menú */
+@media (max-width: 991px) {
+  .ps-menu {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ps-link {
+    padding: 0.9rem 0;
+    font-size: 1.05rem;
+    width: 100%;
+  }
+
+  .ps-brand {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 991px) {
+  .ps-menu {
+    background-color: rgba(0, 45, 94, 0.97);
+    backdrop-filter: blur(4px);
+  }
+}
+@media (max-width: 991px) {
+  .ps-link {
+    letter-spacing: 1.5px;
+  }
+}
+@media (max-width: 991px) {
+  .ps-link:active {
+    color: var(--velez-cyan);
+  }
+}

@@ -56,3 +56,17 @@ navLinks.forEach(link => {
     }
   });
 });
+
+
+ const toggle = document.querySelector(".ps-toggle");
+  const menu = document.querySelector(".ps-menu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".ps-link").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
+  });
