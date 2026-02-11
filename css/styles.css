@@ -208,7 +208,7 @@ section {
 #hero .hero-subtitle {
   font-size: 1.1rem;
   margin: 22px auto;
-  max-width: 680px;
+  max-width: 800px;
   opacity: 0.95;
 }
 
@@ -1012,7 +1012,7 @@ section {
 }
 
 .editorial-bridge h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.35;
   font-weight: 600;
