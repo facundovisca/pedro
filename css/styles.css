@@ -1754,3 +1754,12 @@ section {
     display: none;
   }
 }
+
+.btn-velez-primary {
+  transition: all 0.3s ease;
+}
+
+.btn-velez-primary:hover {
+  transform: scale(1.05); /* Se agranda un poquito al pasar el mouse */
+  filter: brightness(1.1); /* Brilla un poco más */
+}
