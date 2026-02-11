@@ -255,7 +255,7 @@ section {
   }
 
   #hero .hero-title {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
   }
 
   #hero .hero-title span {
@@ -288,7 +288,7 @@ section {
   }
 
   #hero .hero-title span {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
   #hero .hero-subtitle {
     font-size: 0.8rem;
@@ -537,14 +537,15 @@ section {
   .podcast-card {
     margin: 0 10px;
   }
+  
 
   .logos-marquee-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 40px;
-  animation: scrollLogos 30s linear infinite;
-  padding: 0;
-}
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    animation: scrollLogos 30s linear infinite;
+    padding: 0;
+  }
 }
 
 /* =========================
@@ -996,6 +997,7 @@ section {
    EDITORIAL BRIDGE (COMPACTA)
 ========================= */
 
+
 .editorial-bridge {
   height: 25vh;
   display: flex;
@@ -1028,12 +1030,30 @@ section {
 }
 @media (max-width: 768px) {
   #hero {
-    height: calc(65vh - 50px);
+    height: calc(70vh - 20px);
   }
 
   .editorial-bridge {
-    height: 35vh;
+    height: 30vh;
+    margin-top 0; 
   }
+  
+  .editorial-bridge h3 {
+    font-size: 1rem;
+    line-height: 1.35;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    margin-top 0; 
+    padding: 0;
+  }
+
+  .editorial-bridge p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #444;
+  max-width: 860px;
+  margin: 0 auto;
+}
 }
 
 /* =========================
@@ -1046,7 +1066,7 @@ section {
   letter-spacing: 1px;
   margin: 0.5rem;
   padding: 0.5rem;
-}
+  }
 
 @media (max-width: 768px) {
   #confianza h2,
@@ -1181,6 +1201,7 @@ section {
   }
 }
 
+
 .podcast-clean__container {
   max-width: 1100px;
   margin: 0 auto;
@@ -1274,7 +1295,7 @@ section {
   }
 
   .podcast-clean__text {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .podcast-clean {
@@ -1509,4 +1530,219 @@ section {
   #podcast-clean {
     scroll-margin-top: 56px;
   }
+}
+
+/* ===============================
+   VARIABLES
+================================ */
+
+:root {
+  --azul-velez: #002d5e;
+  --gris-claro: #f5f7fa;
+  --texto-principal: #1f2933;
+  --texto-secundario: #4a5568;
+}
+
+/* ===============================
+   SECCIONES
+================================ */
+
+.section-white {
+  background-color: #ffffff;
+  padding: 4.5rem 0;
+}
+
+.section-grey {
+  background-color: var(--gris-claro);
+  padding: 4.5rem 0;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.conferencias-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.8rem;
+  letter-spacing: 0.08em;
+  color: var(--azul-velez);
+  margin-bottom: 1.5rem;
+}
+
+.conferencias-intro {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--texto-secundario);
+}
+
+/* ===============================
+   ITEM CONFERENCIA
+================================ */
+
+.conferencia-item {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* invertir orden */
+.conferencia-item.reverse {
+  grid-template-columns: 1fr 480px;
+}
+
+.conferencia-item.reverse .conferencia-media {
+  order: 2;
+}
+
+.conferencia-item.reverse .conferencia-text {
+  order: 1;
+}
+
+/* ===============================
+   MEDIA (IMG / VIDEO)
+================================ */
+
+.conferencia-media {
+  width: 480px;
+  aspect-ratio: 16 / 9;
+  background-color: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.conferencia-media img,
+.conferencia-media iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+/* ===============================
+   TEXTO
+================================ */
+
+.conferencia-text h3 {
+  font-size: 1.55rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: var(--azul-velez);
+}
+
+.conferencia-text p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--texto-secundario);
+  margin-bottom: 0.9rem;
+  max-width: 560px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .conferencia-item,
+  .conferencia-item.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .conferencia-media {
+    width: 100%;
+  }
+
+  .conferencia-text {
+    text-align: center;
+  }
+
+  .conferencia-text p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .conferencias-title {
+    font-size: 2.2rem;
+  }
+  
+}
+
+.conferencias-header {
+  padding: 3rem;
+  margin:0;
+}
+
+/* Ajuste para las imágenes de conferencias para que no se deformen */
+.conferencia-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.conferencia-media:hover img {
+  transform: scale(1.05);
+}
+
+/* Espaciado para los badges */
+.badge {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+}
+
+/* Color personalizado para el badge de Velez si quieres */
+.bg-primary {
+  background-color: var(--azul-velez) !important;
+}
+
+/* --- SECCIÓN ARTÍCULOS --- */
+
+.author-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gris-claro);
+}
+
+.article-card {
+  background: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.article-preview {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--texto-secundario);
+  margin-bottom: 1.2rem;
+}
+
+/* Colores de bordes laterales para variar entre autores o temas */
+.border-primary { border-color: var(--azul-velez) !important; }
+.border-info { border-color: #0dcaf0 !important; }
+
+.btn-outline-primary {
+  border-color: var(--azul-velez);
+  color: var(--azul-velez);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--azul-velez);
+  border-color: var(--azul-velez);
 }
