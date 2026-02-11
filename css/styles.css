@@ -2019,7 +2019,7 @@ section {
 
 /* TÍTULO */
 .course-title {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #002d5e;
   text-transform: uppercase;
@@ -2052,7 +2052,7 @@ section {
 
 /* DESCRIPCIÓN */
 .course-description {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #555;
   line-height: 1.6;
   margin-top: 5px;
@@ -2077,4 +2077,19 @@ section {
 
 @media (max-width: 576px) {
   .course-card { min-height: auto; }
+}
+
+.course-icon-container {
+  width: 100%;       /* Ocupa el ancho de la tarjeta */
+  height: 160px;     /* Altura fija para que los títulos queden alineados */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.course-img {
+  max-width: 150px;  /* Controla que no se vean gigantes */
+  max-height: 100%;
+  object-fit: contain;
 }
