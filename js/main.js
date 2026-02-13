@@ -18,38 +18,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.offsetHeight;
 
-    // Sombra en navbar al scrollear
+    // Sombra en navbar
     if (scrollY > 20) {
       nav.style.boxShadow = "0 2px 15px rgba(0,0,0,0.1)";
-      nav.style.background = "rgba(0, 45, 94, 0.98)"; // Un toque de transparencia
+      nav.style.background = "rgba(0, 45, 94, 0.98)";
     } else {
       nav.style.boxShadow = "none";
       nav.style.background = "var(--velez-blue)";
     }
 
-    // Aparición de WhatsApp (Solo una vez)
+    // WhatsApp
     if (!whatsappShown && scrollY > 300) {
       whatsapp?.classList.add("whatsapp-visible");
       whatsappShown = true;
     }
 
-    // Scroll Spy: Resaltar link activo en el menú
+    // --- SCROLL SPY (Tu versión que funciona + fix para el final) ---
     sections.forEach((current) => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 100;
+      const sectionTop = current.offsetTop - 120; // Ajustamos un pelín el offset
       const sectionId = current.getAttribute("id");
+      const targetLink = document.querySelector(
+        `.ps-link[href*="${sectionId}"]`,
+      );
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document
-          .querySelector(`.ps-link[href*=${sectionId}]`)
-          ?.classList.add("active-link");
+        targetLink?.classList.add("active-link");
       } else {
-        document
-          .querySelector(`.ps-link[href*=${sectionId}]`)
-          ?.classList.remove("active-link");
+        targetLink?.classList.remove("active-link");
       }
     });
+
+    // FIX PARA PODCAST: Si el usuario llegó al final del scroll, forzamos el Podcast
+    if (scrollY + windowHeight >= docHeight - 50) {
+      // 1. Buscamos qué link es el de podcast
+      const podcastLink = document.querySelector(
+        '.ps-link[href*="podcast-clean"]',
+      );
+      if (podcastLink) {
+        // 2. Quitamos el active a todos los demás (para que no queden dos marcados)
+        navLinks.forEach((link) => link.classList.remove("active-link"));
+        // 3. Marcamos el podcast
+        podcastLink.classList.add("active-link");
+      }
+    }
   };
 
   window.addEventListener("scroll", handleScroll, { passive: true });
@@ -160,3 +175,33 @@ internalLinks.forEach((link) => {
     { once: true },
   );
 });
+
+function openWhatsApp(message) {
+  const phone = "5491122504718";
+  const text = encodeURIComponent(message);
+
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(
+    navigator.userAgent,
+  );
+
+  const url = isMobile
+    ? `https://wa.me/${phone}?text=${text}`
+    : `https://web.whatsapp.com/send?phone=${phone}&text=${text}`;
+
+  window.open(url, "_blank", "noopener");
+}
+
+document.querySelectorAll(".js-whatsapp").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const message =
+      btn.dataset.message ||
+      "Hola Pedro, te contacto desde la página web. Estoy interesado en entrenar mi mente para mejorar mi rendimiento deportivo. ¿Me podrías dar información sobre tus servicios?";
+
+    openWhatsApp(message);
+  });
+});
+
+trackWhatsAppClick(label);
+setTimeout(() => openWhatsApp(message), 150);
