@@ -2121,3 +2121,23 @@ section {
   object-fit: contain;
 }
 
+/* Estilos para el Scroll Spy (Link activo) */
+.ps-link.active-link {
+  color: var(--velez-cyan) !important;
+}
+.ps-link.active-link::after {
+  width: 100% !important;
+  left: 0 !important;
+}
+
+/* Clases para las animaciones Reveal */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
