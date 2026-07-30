@@ -352,10 +352,12 @@ section {
 /* ===============================
    SECCIÓN EQUIPO
 ================================ */
+/* --- SECCIÓN EQUIPO REDISEÑADA --- */
+
 .equipo-section {
   position: relative;
   background: linear-gradient(135deg, #0c2d57, #123d6b);
-  padding: 60px 20px 70px;
+  padding: 80px 20px;
   text-align: center;
   color: white;
   overflow: hidden;
@@ -368,51 +370,36 @@ section {
   z-index: 2;
 }
 
-/* Título */
 .equipo-titulo {
-  font-size: 3rem;
-  letter-spacing: 2px;
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
 }
 
-/* Subtítulo */
-.equipo-subtitulo {
-  font-size: 1rem;
-  opacity: 0.85;
-  margin-bottom: 60px;
-}
-
-/* Miembros */
 .equipo-miembros {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
   justify-content: center;
-  gap: 100px;
-  flex-wrap: wrap;
 }
 
-/* Cada perfil */
 .equipo-miembro {
-  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
 }
 
-.equipo-miembro:hover {
-  transform: translateY(-6px);
-  filter: brightness(1.1);
-}
-
-/* Foto */
 .equipo-foto {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 20px;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 20px;
   border-radius: 50%;
-  padding: 6px;
-  background: linear-gradient(135deg, #4db3ff, #ffffff);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 5px;
+  overflow: hidden;
 }
 
 .equipo-foto img {
@@ -422,26 +409,35 @@ section {
   object-fit: cover;
 }
 
-/* Nombre */
 .equipo-miembro h3 {
-  font-size: 1.3rem;
-  margin-bottom: 6px;
-  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 5px;
 }
 
-/* Rol */
 .equipo-rol {
   display: block;
-  color: #4db3ff;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 15px;
 }
 
-/* Descripción */
 .equipo-miembro p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.85;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Fondo decorativo (lado derecho) */
+.equipo-section::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 168, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Halo para fotos de equipo */
