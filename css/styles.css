@@ -1140,9 +1140,7 @@ section {
   max-width: 650px;
   margin: 0 auto;
 }
-  max-width: 860px;
-  margin: 0 auto;
-}
+
 @media (max-width: 768px) {
   #hero {
     height: auto;
@@ -1152,23 +1150,29 @@ section {
     height: auto;
     margin-top: 0;
     min-height: 0;
-    padding: 2.5rem 1.25rem;
+    padding: 3rem 1rem;
   }
 
-  .editorial-bridge h3 {
-    font-size: 1rem;
-    line-height: 1.35;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    margin-top: 0;
+  .editorial-bridge-title {
+    font-size: 1.35rem;
+    line-height: 1.4;
+    font-weight: 700;
+    margin-bottom: 1rem;
     padding: 0;
+    letter-spacing: 0.5px;
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 
-  .editorial-bridge p {
-    font-size: 0.9rem;
+  .editorial-bridge-title br {
+    display: none;
+  }
+
+  .editorial-bridge-subtitle {
+    font-size: 0.95rem;
     line-height: 1.6;
-    color: #444;
-    max-width: 860px;
+    color: #4a5568;
+    max-width: 100%;
     margin: 0 auto;
   }
 }
