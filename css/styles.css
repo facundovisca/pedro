@@ -1154,12 +1154,14 @@ section {
   }
 
   .editorial-bridge-title {
-    font-size: 1.35rem;
-    line-height: 1.4;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-family: "Oswald", sans-serif !important;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
     padding: 0;
-    letter-spacing: 0.5px;
     word-break: normal;
     overflow-wrap: break-word;
   }
@@ -1169,8 +1171,9 @@ section {
   }
 
   .editorial-bridge-subtitle {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-family: "Inter", sans-serif !important;
+    font-size: 0.85rem;
+    line-height: 1.5;
     color: #4a5568;
     max-width: 100%;
     margin: 0 auto;
