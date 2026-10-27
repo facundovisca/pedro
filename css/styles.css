@@ -23,8 +23,7 @@ h1,
 h2,
 h3,
 h4,
-h5,
-.main-nav {
+h5 {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -71,68 +70,8 @@ section {
 }
 
 .service-card,
-.course-card,
-.team-card {
+.course-card {
   transition: var(--transition-bounce);
-}
-
-/* --- 3. NAVBAR --- */
-.main-nav {
-  background-color: var(--velez-blue);
-  z-index: 1100;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  position: sticky;
-  top: 0;
-}
-
-.navbar-brand,
-.nav-link {
-  position: relative;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-  color: #fff !important;
-}
-
-/* SUBRAYADO ANIMADO */
-.navbar-brand::after,
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 6px;
-  width: 0%;
-  height: 2px;
-  background-color: #ffffff;
-  transition:
-    width 0.3s ease,
-    left 0.3s ease;
-}
-
-.navbar-brand:hover::after,
-.nav-link:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-.navbar-brand {
-  font-size: 1.6rem;
-  margin-right: 2rem;
-}
-
-.nav-link {
-  font-size: 1.2rem;
-  padding: 10px 0.7rem !important;
-}
-
-.navbar-brand:hover,
-.nav-link:hover {
-  color: var(--velez-cyan) !important;
-  transform: scale(1.05);
 }
 
 /* ================= HERO UNIFICADO ================= */
@@ -678,163 +617,6 @@ section {
     padding: 0;
   }
 }
-/* ============================================================
-   SECCIÓN CURSOS - ESTILO ULTRA PREMIUM (INSPIRADO EN SERVICIOS)
-   ============================================================ */
-
-.section-courses-grey {
-  background-color: #f8f9fa;
-  padding: 80px 0;
-  overflow: hidden; /* Para evitar desbordes de animaciones */
-}
-
-.courses-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
-}
-
-/* GRID RESPONSIVE */
-.courses-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 35px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* LA TARJETA (Contenedor de Experiencia) */
-.course-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 45px 25px 35px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  overflow: hidden; /* Importante para el brillo superior */
-  box-shadow: 0 10px 25px rgba(0, 45, 94, 0.06);
-  transition: all 0.35s ease;
-  min-height: 380px;
-  border: 1px solid rgba(0, 0, 0, 0.02);
-}
-
-/* Línea superior de acento (Aparece en Hover) */
-.course-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 5px;
-  width: 100%;
-  background: linear-gradient(
-    90deg,
-    #002d5e,
-    #1ea5ff
-  ); /* Ajusta a tus variables de color */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* HOVER GENERAL DE TARJETA */
-.course-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 55px rgba(0, 45, 94, 0.14);
-}
-
-.course-card:hover::before {
-  opacity: 1;
-}
-
-/* ---------------- ICONO (REACCIONA) ---------------- */
-.course-icon {
-  font-size: 3.5rem;
-  margin-bottom: 25px;
-  transition: transform 0.45s ease;
-  display: block;
-}
-
-.course-card:hover .course-icon {
-  transform: translateY(-8px) scale(1.1);
-}
-
-/* ---------------- TITULO (REACCIONA) ---------------- */
-.course-title {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #002d5e;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  position: relative;
-  padding-bottom: 20px;
-  transition: color 0.3s ease;
-  line-height: 1.3;
-}
-
-/* Línea base que se estira en hover */
-.course-title::after {
-  content: "";
-  width: 40px;
-  height: 3px;
-  background: #1ea5ff; /* Color cyan/azul claro */
-  display: block;
-  margin: 15px auto 0;
-  border-radius: 2px;
-  transition: all 0.35s ease;
-}
-
-/* Cambios en el título al pasar el mouse */
-.course-card:hover .course-title {
-  color: #004a99;
-}
-
-.course-card:hover .course-title::after {
-  width: 75px; /* Se estira como en tu imagen */
-  background: #002d5e;
-}
-
-/* ---------------- TEXTO (DESCRIPCIÓN) ---------------- */
-.course-eyebrow {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
-  font-weight: 400;
-  transition: color 0.3s ease;
-}
-
-.course-card:hover .course-eyebrow {
-  color: #222;
-}
-
-/* ============================================================
-   MEDIA QUERIES (RESPONSIVE)
-   ============================================================ */
-
-@media (min-width: 768px) {
-  .courses-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 992px) {
-  .courses-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-}
-
-@media (max-width: 576px) {
-  .course-card {
-    min-height: auto;
-    padding: 35px 20px;
-  }
-
-  .course-title {
-    font-size: 1.1rem;
-  }
-}
 /* Logos */
 .logos-marquee {
   overflow: hidden;
@@ -1196,162 +978,6 @@ section {
   #confianza h2,
   #confianza h3 {
     font-size: 1rem;
-  }
-}
-
-/* ============================================================
-   SECCIÓN CURSOS - ESTILO INSPIRADO EN SERVICIOS
-   ============================================================ */
-
-.section-courses-grey {
-  background-color: #f8f9fa;
-  padding: 80px 0; /* Espaciado generoso */
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-.courses-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 50px;
-  padding: 0 15px;
-}
-
-.courses-header h2 {
-  font-size: 2.5rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 15px;
-  color: #002d5e;
-}
-
-.section-subtitle {
-  color: #6c757d;
-  font-size: 1.1em;
-  line-height: 1.6;
-  padding: 0.2rem;
-}
-
-
-
-/* GRID RESPONSIVE */
-.courses-grid {
-  display: grid;
-  /* Por defecto: 1 columna (móvil) */
-  grid-template-columns: 1fr;
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* CARD ESTILIZADA */
-.course-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 40px 25px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease-in-out;
-  border: 1px solid rgba(0, 0, 0, 0.02);
-  min-height: 350px; /* Forzamos el look vertical */
-}
-
-.course-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* ICONO (Emoji o Imagen) */
-.course-icon {
-  font-size: 3rem;
-  margin-bottom: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.course-icon img {
-  width: 80px; /* Tamaño ideal para emular la imagen de servicios */
-  height: auto;
-}
-
-/* TITULO CON LÍNEA DECORATIVA */
-.course-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #002d5e;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 15px;
-  line-height: 1.3;
-}
-
-/* La línea azul de "Servicios" */
-.course-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 35px;
-  height: 3px;
-  background-color: #0056b3;
-  border-radius: 2px;
-}
-
-/* DESCRIPCIÓN (EYEBROW) */
-.course-eyebrow {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
-  font-weight: 400;
-  margin-top: 10px;
-}
-
-/* FOOTER Y BOTÓN */
-.courses-footer {
-  margin-top: 40px;
-  text-align: center;
-  font-style: italic;
-  color: #777;
-  font-size: 0.9rem;
-  padding: 0 20px;
-}
-
-/* ============================================================
-   MEDIA QUERIES (RESPONSIVE)
-   ============================================================ */
-
-/* Tablets (768px en adelante) */
-@media (min-width: 768px) {
-  .courses-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-  }
-}
-
-/* Desktop (992px en adelante) */
-@media (min-width: 992px) {
-  .courses-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
-    gap: 40px;
-  }
-}
-
-/* Ajustes para pantallas muy pequeñas */
-@media (max-width: 480px) {
-  .section-courses-grey {
-    padding: 50px 0;
-  }
-  .course-card {
-    min-height: auto; /* En móvil no hace falta forzar la altura */
-    padding: 30px 20px;
-  }
-  .courses-header h2 {
-    font-size: 2rem;
   }
 }
 
@@ -1963,6 +1589,13 @@ section {
   margin: 0 auto 60px;
 }
 
+.section-subtitle {
+  color: #6c757d;
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding: 0.2rem;
+}
+
 /* GRID */
 .courses-grid {
   display: grid;
@@ -2013,9 +1646,9 @@ section {
 
 /* CONTENEDOR DE IMAGEN / ICONO */
 .course-icon-container {
-  width: 180px;
-  height: 180px;
-  margin-bottom: 25px;
+  width: 100%;
+  height: 160px; /* Altura fija para que los títulos queden alineados */
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2023,8 +1656,8 @@ section {
 }
 
 .course-img {
-  width: 100%;
-  height: auto;
+  max-width: 150px; /* Controla que no se vean gigantes */
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -2112,21 +1745,6 @@ section {
 
     padding: 1rem;
   }
-}
-
-.course-icon-container {
-  width: 100%; /* Ocupa el ancho de la tarjeta */
-  height: 160px; /* Altura fija para que los títulos queden alineados */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.course-img {
-  max-width: 150px; /* Controla que no se vean gigantes */
-  max-height: 100%;
-  object-fit: contain;
 }
 
 /* Estilos para el Scroll Spy (Link activo) */
